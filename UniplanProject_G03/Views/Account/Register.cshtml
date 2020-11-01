@@ -1,0 +1,142 @@
+﻿@model UniplanProject_G03.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    //ประวัติส่วนตัว
+    <h2>ประวัติส่วนตัว</h2>
+    <br />
+    <div class="form-group">
+        <!-- ชื่อ-สกุล -->
+        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+        <!-- ชื่อเล่น -->
+        @Html.LabelFor(m => m.Nick, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Nick, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <!-- ว/ด/ป.เกิด -->
+       @Html.LabelFor(m => m.Dob, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(m => m.Dob, new { htmlAttributes = new { @class = "form-control", placeholder = "วัน/เดือน/ปีเกิด", @readonly = "true" } })
+        </div>
+
+        @Html.LabelFor(m => m.Sex, new { @class = "control-label col-md-2" })
+        <!-- Sex -->
+        <div class="col-md-4" style="font-size: 16px">
+
+            @Html.RadioButtonFor(m => m.Sex, "Male") <b>ชาย</b> &nbsp;
+            @Html.RadioButtonFor(m => m.Sex, "Female") <b>หญิง</b>
+        </div>
+    </div>
+
+    <hr />
+    //ข้อมูลมหาวิทยาลัย
+    <h2>ข้อมูลมหาวิทยาลัย</h2>
+    <br />
+    <div class="form-group">
+        <!-- รหัสนักศึกษา-->
+        @Html.LabelFor(m => m.StudentID, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.StudentID, new { @class = "form-control" })
+        </div>
+        <!-- มหาวิทยาลัย/วิทยาลัย-->
+        @Html.LabelFor(m => m.University, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.University, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <!-- คณะ/สำนักวิชา-->
+        @Html.LabelFor(m => m.Institute, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Institute, new { @class = "form-control" })
+        </div>
+        <!-- สาขาวิชา -->
+        @Html.LabelFor(m => m.Branch, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Branch, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <!-- ปีที่ -->
+        @Html.LabelFor(m => m.Year, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+        </div>
+        @Html.LabelFor(m => m.Motto, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextAreaFor(m => m.Motto, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <hr />
+    //ข้อมูลเข้าสู่ระบบ
+    <h2>ข้อมูลเข้าสู่ระบบ</h2>
+    <br />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+        @Html.LabelFor(m => m.Url, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.EditorFor(m => m.Url, new { htmlAttributes = new { @class = "form-control", type = "file" } })
+            @Html.ValidationMessageFor(m => m.Url, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-4">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/jquery-ui.css")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type=datetime]').datepicker({
+                dateFormat: "dd/M/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+
+        });
+    </script>
+}

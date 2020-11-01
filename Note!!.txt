@@ -1,0 +1,51 @@
+CDN Ver 3.4.0
+https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css
+https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css
+---------------------------------
+CDN Ver 5.3.2
+https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.3.2/main.css
+https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.3.2/main.min.css
+----------------------------------------
+CDN Js Ver
+https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js
+https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js
+---------------------------------------
+Events Table
+- EventID
+- Subject
+- Desc
+- Start
+- End
+- ThemeColor
+- IsFullDay
+-------------------------------------
+Student_Login
+User : b@uniplan.com
+Pass : 1dv3OD$x^w&N
+Admin_Login
+User : admin
+Pass : Pass@word1
+User diff
+User : admin@uniplan.com
+Pass : Pass@word1
+-------------------------------------
+Keyword search :
+Add activity calendar ASP.NET C#
+-------------------------------------
+How to check user
+@using Microsoft.AspNet.Identity
+@if (User.Identity.IsAuthenticated)
+{
+    ///string identity = User.Identity.GetUserName();
+
+    if (User.Identity.GetUserName() == "admin")
+    {
+        <!--<p>  I am Admin</p>-->
+    }
+    else
+    {
+<!--<p>  I Love Member Wait add Calendar</p>-->
+}else{
+<!--<p>  I Love General User </p>-->
+}
+--------------------------------------

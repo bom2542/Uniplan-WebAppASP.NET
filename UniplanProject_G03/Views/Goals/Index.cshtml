@@ -1,0 +1,166 @@
+﻿@model IEnumerable<UniplanProject_G03.Models.Goal>
+@using Microsoft.AspNet.Identity
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.Identity.GetUserName() == "admin")
+    {
+        //admin
+
+    }
+    else
+    {
+        //member
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+<div class="body-content">
+    <center><h2>เป้าหมาย</h2></center>
+
+    <div class="col-md-4">
+        <!-- เป้าหมายระยะสั้น -->
+        <table class="table">
+            <tr>
+                <th>
+                    <center></center>
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                var type = item.GoalTypeID;
+
+                if (type == 1)
+                {
+                    var user = item.UserName;
+                    if (user == User.Identity.GetUserName())
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Topic)
+                                <div class="progress" style="height: 20px">
+                                    @{
+                                        var percent = item.Percent + "%";
+                                    }
+                                    @if (item.Percent < 100)
+                                    {
+                                        <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                            @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                            @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                        </div>
+                                    }
+                                </div>
+                                <hr />
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </table>
+    </div>
+    <div class="col-md-4">
+        <!-- เป้าหมายระยะกลาง -->
+        <table class="table">
+            <tr>
+                <th>
+                    เป้าหมายระยะกลาง
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                var type = item.GoalTypeID;
+
+                if (type == 2)
+                {
+                    var user = item.UserName;
+                    if (user == User.Identity.GetUserName())
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Topic)
+                                <div class="progress" style="height: 20px">
+                                    @{
+                                        var percent = item.Percent + "%";
+                                    }
+                                    @if (item.Percent < 100)
+                                    {
+                                        <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                            @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                            @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                        </div>
+                                    }
+                                </div>
+                                <hr/>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </table>
+    </div>
+    <div class="col-md-4">
+        <!-- เป้าหมายระยะยาว -->
+        <table class="table">
+            <tr>
+                <th>
+                    เป้าหมายระยะยาว
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                var type = item.GoalTypeID;
+
+                if (type == 3)
+                {
+                    var user = item.UserName;
+                    if (user == User.Identity.GetUserName())
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Topic)
+                                <div class="progress" style="height: 20px">
+                                    @{
+                                        var percent = item.Percent + "%";
+                                    }
+                                    @if (item.Percent < 100)
+                                    {
+                                        <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                            @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                            @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                        </div>
+                                    }
+                                </div>
+                                <hr />
+                            </td>
+                        </tr>
+                                                    }
+                                                }
+                                            }
+        </table>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("เพิ่มเป้าหมาย", "Create")
+</p>
+
+    }
+}
+else
+{
+    //user
+}

@@ -1,0 +1,135 @@
+<!--<table class="table">
+                    <tr>
+                        <th>
+                            เป้าหมายระยะสั้น
+                        </th>
+                        <th>
+                            เป้าหมายระยะกลาง
+                        </th>
+                        <th>
+                            เป้าหมายระยะยาว
+                        </th>
+                        @*<th>
+                            @Html.DisplayNameFor(model => model.Topic)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Detail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Percent)
+                        </th>
+                        <th></th>*@
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        var type = item.GoalTypeID;
+
+                        if (type == 1)
+                        {
+                            var user = item.UserName;
+
+                            if (user == User.Identity.GetUserName())
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Topic)
+                                    </td>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.Detail)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Percent)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>*@
+                                </tr>
+
+                            }
+                            else
+                            {
+                                //ของการพิสูจน์อัตลักษณ์
+                            }
+                        }
+
+                        if (type == 2)
+                        {
+                            var user = item.UserName;
+
+                            if (user == User.Identity.GetUserName())
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Topic)
+                                    </td>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.Detail)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Percent)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>*@
+                                </tr>
+
+                            }
+                            else
+                            {
+                                //ของการพิสูจน์อัตลักษณ์
+                            }
+                        }
+                        else
+                        {
+                            //ของการพิสูจน์เป้าหมาย
+                        }
+
+                        if (type == 3)
+                        {
+                            var user = item.UserName;
+
+                            if (user == User.Identity.GetUserName())
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Topic)
+                                    </td>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.Detail)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Percent)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>*@
+                                </tr>
+
+                            }
+                            else
+                            {
+                                //ของการพิสูจน์อัตลักษณ์
+                            }
+                        }
+                        else
+                        {
+
+                        }
+
+                    }
+                </table>
+            </div>
+
+        }
+    }
+    else
+    {
+        //user
+    }-->*@
