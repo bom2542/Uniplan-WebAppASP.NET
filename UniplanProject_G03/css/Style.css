@@ -17,3 +17,17 @@
 div {
     font-family : sutregular;
 }
+
+#cent {
+    /*align-items: center;*/
+    text-align: center;
+}
+
+#foot{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightpink;
+    color: white;
+}

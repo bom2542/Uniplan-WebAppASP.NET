@@ -14,150 +14,267 @@
         ViewBag.Title = "Index";
         Layout = "~/Views/Shared/_Layout.cshtml";
 
-<div class="body-content">
-    <center><h2>เป้าหมาย</h2></center>
+<div class="body-content col-md-12">
+    <br/>
+    <center><h2 style="font-size: 36px"><b>เป้าหมาย</b></h2></center>
+    <br />
 
+    <!-- เป้าหมายระยะสั้น -->
     <div class="col-md-4">
-        <!-- เป้าหมายระยะสั้น -->
         <table class="table">
-            <tr>
-                <th>
-                    <center></center>
-                </th>
-            </tr>
-            @foreach (var item in Model)
-            {
-                var type = item.GoalTypeID;
-
-                if (type == 1)
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" style="font-size: 20px">
+                        <center><b>เป้าหมายระยะสั้น</b></center>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
                 {
-                    var user = item.UserName;
-                    if (user == User.Identity.GetUserName())
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Topic)
-                                <div class="progress" style="height: 20px">
-                                    @{
-                                        var percent = item.Percent + "%";
-                                    }
-                                    @if (item.Percent < 100)
-                                    {
-                                        <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
-                                            @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
-                                            @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
-                                        </div>
-                                    }
-                                </div>
-                                <hr />
-                            </td>
-                        </tr>
-                    }
-                }
-            }
-        </table>
-    </div>
-    <div class="col-md-4">
-        <!-- เป้าหมายระยะกลาง -->
-        <table class="table">
-            <tr>
-                <th>
-                    เป้าหมายระยะกลาง
-                </th>
-            </tr>
-            @foreach (var item in Model)
-            {
-                var type = item.GoalTypeID;
+                    var type = item.GoalTypeID;
 
-                if (type == 2)
-                {
-                    var user = item.UserName;
-                    if (user == User.Identity.GetUserName())
+                    if (type == 1)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Topic)
-                                <div class="progress" style="height: 20px">
-                                    @{
-                                        var percent = item.Percent + "%";
-                                    }
-                                    @if (item.Percent < 100)
-                                    {
-                                        <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
-                                            @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                        var user = item.UserName;
+                        if (user == User.Identity.GetUserName())
+                        {
+                            <tr>
+                                <td>
+                                    <div style="font-size: 18px">
+                                        @Html.DisplayFor(modelItem => item.Topic)
                                         </div>
-                                    }
-                                    else
-                                    {
-                                        <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
-                                            @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
-                                        </div>
-                                    }
-                                </div>
-                                <hr/>
-                            </td>
-                        </tr>
-                    }
-                }
-            }
-        </table>
-    </div>
-    <div class="col-md-4">
-        <!-- เป้าหมายระยะยาว -->
-        <table class="table">
-            <tr>
-                <th>
-                    เป้าหมายระยะยาว
-                </th>
-            </tr>
-            @foreach (var item in Model)
-            {
-                var type = item.GoalTypeID;
-
-                if (type == 3)
-                {
-                    var user = item.UserName;
-                    if (user == User.Identity.GetUserName())
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Topic)
-                                <div class="progress" style="height: 20px">
-                                    @{
-                                        var percent = item.Percent + "%";
-                                    }
-                                    @if (item.Percent < 100)
-                                    {
-                                        <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
-                                            @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
-                                            @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
-                                        </div>
-                                    }
-                                </div>
-                                <hr />
-                            </td>
-                        </tr>
-                                                    }
-                                                }
+                                        <div class="progress" style="height: 20px">
+                                            @{
+                                                var percent = item.Percent + "%";
                                             }
+                                            @if (item.Percent < 100)
+                                            {
+                                                <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                                    @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                                    @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                                </div>
+                                            }
+                                        </div>
+                                        <hr />
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
         </table>
     </div>
+
+    <div class="col-md-4">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" style="font-size: 20px">
+                        <center><b>เป้าหมายระยะกลาง</b></center>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var type = item.GoalTypeID;
+
+                    if (type == 2)
+                    {
+                        var user = item.UserName;
+                        if (user == User.Identity.GetUserName())
+                        {
+                            <tr>
+                                <td>
+                                    <div style="font-size: 18px">
+                                        @Html.DisplayFor(modelItem => item.Topic)
+                                    </div>
+                                        <div class="progress" style="height: 20px">
+                                            @{
+                                                var percent = item.Percent + "%";
+                                            }
+                                            @if (item.Percent < 100)
+                                            {
+                                                <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                                    @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                                    @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                                </div>
+                                            }
+                                        </div>
+                                        <hr />
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-4">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" style="font-size: 20px">
+                        <center><b>เป้าหมายระยะยาว</b></center>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var type = item.GoalTypeID;
+
+                    if (type == 3)
+                    {
+                        var user = item.UserName;
+                        if (user == User.Identity.GetUserName())
+                        {
+                            <tr>
+                                <td>
+                                    <div style="font-size: 18px">
+                                        @Html.DisplayFor(modelItem => item.Topic)
+                                    </div>
+                                    <div class="progress" style="height: 20px">
+                                        @{
+                                            var percent = item.Percent + "%";
+                                        }
+                                        @if (item.Percent < 100)
+                                        {
+                                            <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                            </div>
+                                        }
+                                    </div>
+                                    <hr />
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- เป้าหมายระยะกลาง -->
+    @*<div class="col-md-4">
+            <table class="table">
+                <tr>
+                    <th>
+                        เป้าหมายระยะกลาง
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    var type = item.GoalTypeID;
+
+                    if (type == 2)
+                    {
+                        var user = item.UserName;
+                        if (user == User.Identity.GetUserName())
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Topic)
+                                    <div class="progress" style="height: 20px">
+                                        @{
+                                            var percent = item.Percent + "%";
+                                        }
+                                        @if (item.Percent < 100)
+                                        {
+                                            <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                            </div>
+                                        }
+                                    </div>
+                                    <hr />
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </table>
+        </div>*@
+
+    <!-- เป้าหมายระยะยาว -->
+    @*<div class="col-md-4">
+            <table class="table">
+                <tr>
+                    <th>
+                        เป้าหมายระยะยาว
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    var type = item.GoalTypeID;
+
+                    if (type == 3)
+                    {
+                        var user = item.UserName;
+                        if (user == User.Identity.GetUserName())
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Topic)
+                                    <div class="progress" style="height: 20px">
+                                        @{
+                                            var percent = item.Percent + "%";
+                                        }
+                                        @if (item.Percent < 100)
+                                        {
+                                            <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                            </div>
+                                        }
+                                    </div>
+                                    <hr />
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </table>
+        </div>*@
+
 </div>
 
-<p>
+<br />
+<div class="col-md-12" align="center">
     @Html.ActionLink("เพิ่มเป้าหมาย", "Create")
-</p>
-
+</div>
+<div class="col-md-12">
+    <br />
+    <hr />
+</div>
     }
 }
 else

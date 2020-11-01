@@ -64,10 +64,14 @@
     <!--<div class="container body-content">-->
     <div class="fluid-container">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - UniversityStudyPlanner(Uniplan)</p>
-        </footer>
+        <div align="center">
+            <footer>
+                <p>
+                    &copy; @DateTime.Now.Year - UniversityStudyPlanner(Uniplan) <br />
+                    Information Technology, Suranaree University Of Technology, Nakhonrachasima - TH
+                </p>
+            </footer>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
