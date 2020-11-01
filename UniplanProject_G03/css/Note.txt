@@ -1,2 +1,10 @@
-﻿I love you bebe
-So note i save this file
+﻿----------- Login for testing -----------
+Student_Login
+User : b@uniplan.com
+Pass : 1dv3OD$x^w&N
+-------------------
+Admin_Login
+User : admin
+Pass : Pass@word1
+User : admin@uniplan.com
+------------------------
