@@ -200,7 +200,7 @@
       <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>UniplanModel.tt</DependentUpon>
+      <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserClaim.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
@@ -215,7 +215,7 @@
       <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Event.cs">
-      <DependentUpon>UniplanModel.tt</DependentUpon>
+      <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Goal.Context.cs">
       <AutoGen>True</AutoGen>
@@ -255,6 +255,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Objective.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Planner.cs">
+      <DependentUpon>UniplansModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UniplanModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -285,6 +288,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UniplansModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PlannersController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -464,6 +468,11 @@
     <Content Include="Views\Goals\Details.cshtml" />
     <Content Include="Views\Goals\Edit.cshtml" />
     <Content Include="Views\Goals\Index.cshtml" />
+    <Content Include="Views\Planners\Create.cshtml" />
+    <Content Include="Views\Planners\Delete.cshtml" />
+    <Content Include="Views\Planners\Details.cshtml" />
+    <Content Include="Views\Planners\Edit.cshtml" />
+    <Content Include="Views\Planners\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

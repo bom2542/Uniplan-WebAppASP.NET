@@ -33,5 +33,6 @@ namespace UniplanProject_G03.Models
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<Goal> Goals { get; set; }
         public virtual DbSet<GoalType> GoalTypes { get; set; }
+        public virtual DbSet<Planner> Planners { get; set; }
     }
 }

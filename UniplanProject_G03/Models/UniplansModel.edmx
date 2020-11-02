@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="UniplansModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="UniplansModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -110,6 +110,16 @@
           <Property Name="GoalTypeName" Type="nvarchar" MaxLength="30" />
           <Property Name="GoalTypeDetail" Type="nvarchar" MaxLength="200" />
         </EntityType>
+        <EntityType Name="Planner">
+          <Key>
+            <PropertyRef Name="PlannerId" />
+          </Key>
+          <Property Name="PlannerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Topic" Type="nvarchar" MaxLength="150" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+        </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -182,6 +192,9 @@
 warning 6035: The relationship 'FK_Goal_ToTable' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_Goal_ToTable" />-->
         <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Planner_ToAspNetUsers' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Planner_ToAspNetUsers" />-->
+        <!--Errors Found During Generation:
 warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_Table_ToAspNetUsers" />-->
         <EntityContainer Name="UniplansModelStoreContainer">
@@ -194,6 +207,7 @@ warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Goal" EntityType="Self.Goal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GoalType" EntityType="Self.GoalType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planner" EntityType="Self.Planner" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -215,8 +229,7 @@ warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not
             <End Role="Goal" EntitySet="Goal" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UniplansModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -394,7 +407,18 @@ warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="Planners" EntityType="UniplansModel.Planner" />
         </EntityContainer>
+        <EntityType Name="Planner">
+          <Key>
+            <PropertyRef Name="PlannerId" />
+          </Key>
+          <Property Name="PlannerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Topic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -511,6 +535,17 @@ warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Planners">
+            <EntityTypeMapping TypeName="UniplansModel.Planner">
+              <MappingFragment StoreEntitySet="Planner">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="PlannerId" ColumnName="PlannerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
