@@ -123,5 +123,12 @@ namespace UniplanProject_G03
             }
             base.Dispose(disposing);
         }
+
+        public JsonResult GetEvents()
+        {
+            using UniplanEntities ue = new UniplanEntities();
+            var events = ue.Events.ToList();
+            return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
     }
 }

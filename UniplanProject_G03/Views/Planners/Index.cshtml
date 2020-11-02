@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<UniplanProject_G03.Models.Planner>
+@using Microsoft.AspNet.Identity
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Planner";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,43 +11,151 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Topic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Topic)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PlannerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PlannerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PlannerId })
-        </td>
-    </tr>
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Topic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.PlannerId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.PlannerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.PlannerId })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+@if (User.Identity.IsAuthenticated)
+{
+    ///string identity = User.Identity.GetUserName();
+
+    if (User.Identity.GetUserName() == "admin")
+    {
+        <!--<p>  I am Admin</p>-->
+    }
+    else
+    {
+
+        <!--<p>  I Love Member Wait add Calendar</p>-->
+        <div id="calendar" class="container body-content" style="padding-top: 30px"></div>
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">หัวข้อ : <span id="eventTitle"></span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="pDetails"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
+        <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
+
+        @section Scripts{
+            <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.1/moment.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+            @*<script src="https://fullcalendar.io/js/fullcalendar-2.1.1/lang/th.js"></script>*@
+
+            <script>
+                $(document).ready(function () {
+
+                    var events = [];
+                    var identity = "@User.Identity.GetUserName()";
+
+                    $.ajax({
+                        type: "GET",
+                        url: "/home/GetEvents",
+                        success: function (data) {
+                            $.each(data, function (i, v) {
+                                if (v.UserName == identity) {
+                                    events.push({
+                                        title: v.Topic,
+                                        //description: v.Description,
+                                        start: moment(v.StartTime),
+                                        end: v.EndTime != null ? moment(v.EndTime) : null,
+                                        /*color: v.Color,
+                                        allDay: v.Full*/
+                                    });
+                                }
+                            })
+                            //lang: 'th';
+                            GenerateCalendar(events);
+                        },
+                        error: function (error) {
+                            alert('failed');
+                        }
+                    })
+
+                    function GenerateCalendar(events) {
+                        $('#calendar').fullCalendar('destroy');
+                        $('#calendar').fullCalendar({
+                            //lang: 'th',
+                            contentHeight: 1000,
+                            defaultDate: new Date(),
+                            timeFormat: 'h(:mm)a',
+                            header: {
+                                left: 'prev,next today',
+                                center: 'title',
+                                right: 'agenda'
+                                /*right: 'month,basicWeek,basicDay,agenda'*/
+                            },
+                            eventLimit: true,
+                            eventColor: '#378006',
+                            events: events,
+                            eventClick: function (calEvent, jsEvent, view) {
+                                $('#myModal #eventTitle').text(calEvent.title);
+                                var $description = $('<div/>');
+                                $description.append($('<p/>').html('<b>วันเริ่มต้น : </b> ' + calEvent.start.format("DD-MMMM-YYYY HH:mm a")));
+                                if (calEvent.end != null) {
+                                    $description.append($('<p/>').html('<b>วันสิ้นสุด : </b>' + calEvent.end.format("DD-MMMMYYYY HH:mm a")));
+                                }
+                                //$description.append($('<p/>').html('<b>คำอธิบาย : </b>' + calEvent.description));
+                                $('#myModal #pDetails').empty().html($description);
+
+                                $('#myModal').modal();
+                            }
+                        })
+                    }
+                })
+            </script>
+        }
+    }
 }
-
-</table>
