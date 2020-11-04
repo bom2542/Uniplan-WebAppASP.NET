@@ -160,7 +160,7 @@ else
 {
     <!--<p>  I Love General User </p>-->
     //การสไลด์ของรูปภาพจ้า
-    ViewBag.Title = "Welcome To Uniplan";
+    ViewBag.Title = "Welcome To";
 
     <div id="mycarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -211,7 +211,92 @@ else
     <div class="container body-content">
         <div class="row">
             <div class="col-md-12">
-                <h3 align="center"><b>เพราะเราภูมิใจที่จะนำเสนอ</b></h3>
+                <br/>
+                <h2> <b> ปรัชญาและคำคมคนดัง </b></h2>
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide" style="background-image: url(https://swiperjs.com/demos/images/nature-1.jpg)">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12" align="left" style="color: white"><h4> “จงกระหาย และ ทำตัวให้โง่ตลอดเวลา” </h4></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-2.jpg)">
+                        </div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-3.jpg)">
+                        </div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-4.jpg)">
+                        </div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-5.jpg)">
+                        </div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-6.jpg)">
+                        </div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-7.jpg)">
+                        </div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-8.jpg)">
+                        </div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-9.jpg)">
+                        </div>
+                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-10.jpg)">
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                </div>
+
+                <!-- Swiper JS -->
+                <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+                <!-- Initialize Swiper -->
+                <script>
+                    var swiper = new Swiper('.swiper-container', {
+                        effect: 'coverflow',
+                        grabCursor: true,
+                        centeredSlides: true,
+                        slidesPerView: 'auto',
+                        coverflowEffect: {
+                            rotate: 50,
+                            stretch: 0,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                    });
+                </script>
+
+            </div>
+
+            <div class="col-md-12">
+                <br />
+            </div>
+            <div class="col-md-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6" align="center">
+                            <img src="~/Content/images/Review/Pharadorn.jpg" style="border-radius: 50%; width: 50%; height: auto;" />
+                        </div>
+                        <div class="col-md-6">
+                            <br />
+                            <br />
+                            <br />
+                            <h2>" ผมมีความเชื่ออีกอย่างหนึ่งที่ว่า การเรียนที่ดีคือ การเรียนแบบมีแบบแผน "</h2>
+                            <h4><i>ภราดร บุญร่วม</i></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <br />
+            </div>
+            <div class="col-md-12">
+                <h2 align="center"><b>ว้าว!! คนเข้ามาใช้เยอะจัง</b></h2>
                 <section class="statistics">
                     <div class="container body-content">
                         <div class="row">
@@ -246,6 +331,8 @@ else
                     </div>
                 </section>
             </div>
+
+            <!-- Stop -->
         </div>
     </div>
 }
