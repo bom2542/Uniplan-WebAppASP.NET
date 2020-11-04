@@ -31,3 +31,8 @@ div {
     background-color: lightpink;
     color: white;
 }
+
+#imgpro{
+    height: 50px;
+    width: auto;
+}

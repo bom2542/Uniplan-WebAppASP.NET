@@ -1,12 +1,6 @@
 ﻿@model IEnumerable<UniplanProject_G03.Models.AspNetUser>
 @using Microsoft.AspNet.Identity
 
-@{
-    ViewBag.Title = "Customer List";
-}
-
-<h2 align="center">บัญชีผู้ใช้</h2>
-
 @*
     <p>
         @Html.ActionLink("Create New", "Create")
@@ -19,6 +13,9 @@
 
     if (User.Identity.GetUserName() == "admin")
     {
+        ViewBag.Title = "Customer List";
+
+        <h2 align="center">บัญชีผู้ใช้ระบบวางแผนการเรียนออนไลน์</h2>
 
         <div class="table-responsive">
             <div class="body-content">
@@ -27,40 +24,40 @@
                         <table class="table table-hover">
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.UserName)
+                                    ชื่อผู้ใช้
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Name)
+                                    ชื่อ - นามสกุล
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Nick)
+                                    ชื่อเล่น
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Dob)
+                                    ว/ด/ป.เกิด
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Sex)
+                                    เพศ
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.StudentID)
+                                    รหัสนักศึกษา
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.University)
+                                    มหาวิทยาลัย
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Institute)
+                                    คณะ/สำนัก
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Branch)
+                                    สาขา
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Year)
+                                    ชั้นปี
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Motto)
+                                    คติประจำใจ
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Url)
+                                    รูปภาพ
                                 </th>
                             </tr>
 
@@ -102,8 +99,17 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Motto)
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Url)
+                                        <td align="center">
+                                            @*<img src="..." class="rounded mx-auto d-block" alt="...">*@
+                                            @if (item.Url == null)
+                                            {
+                                                <img src="~/Content/images/logo/uniplanlogo.png" style="height: 100px; width: auto" />
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Content/images/profile/@item.Url" style="height: 100px; width: auto" />
+                                            }
+
                                         </td>
                                     </tr>
                                 }
@@ -117,18 +123,18 @@
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12" align="center">
-                        <p>
-                            <a class="btn btn-success" href="@Url.Action("exportReport")">Report Member</a>
-                        </p>
-                    </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" align="center">
+                    <p>
+                        <a class="btn btn-success" href="@Url.Action("exportReport")">Report Member</a>
+                    </p>
                 </div>
             </div>
+        </div>
 
-            }
-            }
+    }
+}
 
 

@@ -29,8 +29,8 @@
                     if (User.Identity.GetUserName() == "admin")
                     {
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Report", "Index", "Report")</li>
+                    @* <li>@Html.ActionLink("Home", "Index", "Home")</li> *@
+                    <li>@Html.ActionLink("Manage Member", "CustomerList", "Home")</li>
                     @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
                     }
