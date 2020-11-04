@@ -1,11 +1,13 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using Microsoft.Owin.Security;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using UniplanProject_G03.Models;
 
@@ -43,20 +45,21 @@ namespace UniplanProject_G03.Controllers
             Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
             stream.Seek(0, SeekOrigin.Begin);
             return File(stream, "application/pdf", "MemberReport.pdf");
-            /*try
-            {
-                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                stream.Seek(0, SeekOrigin.Begin);
-                return File(stream, "application/pdf", "MemberReport.pdf");
-            }
-            catch
-            {
-                throw;
-            }*/
+
         }
 
-        public ActionResult Index()
+    public ActionResult Index()
         {
+            UniplansEntities db = new UniplansEntities();
+            var UserCount = db.AspNetUsers.Count() - 1;
+            ViewBag.UserCount = UserCount;
+
+            var GoalCount = db.Goals.Count();
+            ViewBag.GoalCount = GoalCount;
+
+            var PlannerCount = db.Planners.Count();
+            ViewBag.PlannerCount = PlannerCount;
+
             return View();
         }
 

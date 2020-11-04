@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
 
+
 @if (User.Identity.IsAuthenticated)
 {
     ///string identity = User.Identity.GetUserName();
@@ -7,34 +8,62 @@
     if (User.Identity.GetUserName() == "admin")
     {
         <!--<p>  I am Admin</p>-->
-        {
-            ViewBag.Title = "Dashboard Admin";
-        }
+        ViewBag.Title = "Dashboard Admin";
+
+        //<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        //<link rel="stylesheet" href="~/css/Style.css" />
+
+        //<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <p>
-                        <a class="btn btn-success" href="@Url.Action("CustomerList")">Manage Member</a>
-                    </p>
+                <div class="col-md-12">
+                    <h2 align="center"><b>Dashboard Management(Admin)</b></h2>
+                    <h4><b>ภาพรวมสรุปการใช้งาน</b></h4>
+                    <section class="statistics">
+                        <div class="container body-content">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="box">
+                                        <i class="fa fa-users fa-fw bg-primary"></i>
+                                        <div class="info" id="info">
+                                            <span>จำนวนกว่า</span> <h3> @ViewBag.UserCount </h3> <span>คน</span>
+                                            <p>ผู้ใช้งานบริการวางแผนการเรียนออนไลน์ของเรา</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="box">
+                                        <i class="fa fa-graduation-cap fa-fw danger"></i>
+                                        <div class="info" id="info">
+                                            <span>จำนวนกว่า </span> <h3> @ViewBag.GoalCount </h3> <span>แผนเป้าหมาย</span>
+                                            <p>ที่สนใจในการตั้งเป้าหมายของเรามันดีสุดๆไปเลย</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="box">
+                                        <i class="fa fa-check-square-o fa-fw success"></i>
+                                        <div class="info" id="info">
+                                            <span>จำนวนกว่า </span> <h3> @ViewBag.PlannerCount </h3> <span>แผนแพลนเนอร์</span>
+                                            <p>ที่สนใจในการวางแผนประจำวันของพวกเขา</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="col-md-4">
-                    <p>
-                        <a class="btn btn-success" href="@Url.Action("CustomerList")">Manage Member</a>
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <p>
-                        <a class="btn btn-success" href="@Url.Action("CustomerList")">Manage Member</a>
-                    </p>
-                </div>
+
+                <!-- เลเอาท์ -->
             </div>
         </div>
+        
+
     }
     else
     {
-        {
-            ViewBag.Title = "Dashboard Member";
-        }
+        ViewBag.Title = "Dashboard Member";
         <!--<p>  I Love Member Wait add Calendar</p>-->
         <div id="calendar" class="container body-content" style="padding-top: 30px"></div>
 
@@ -131,9 +160,7 @@ else
 {
     <!--<p>  I Love General User </p>-->
     //การสไลด์ของรูปภาพจ้า
-    {
-        ViewBag.Title = "Welcome To ";
-    }
+    ViewBag.Title = "Welcome To Uniplan";
 
     <div id="mycarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -183,22 +210,41 @@ else
 
     <div class="container body-content">
         <div class="row">
-            <div class="col-md-4">
-                <h2>Getting started</h2>
-                <p>
-                    lorem
-                </p>
-                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-            </div>
-            <div class="col-md-4 body-content">
-                <h2>Get more libraries</h2>
-                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-            </div>
-            <div class="col-md-4 body-content">
-                <h2>Web Hosting</h2>
-                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            <div class="col-md-12">
+                <h3 align="center"><b>เพราะเราภูมิใจที่จะนำเสนอ</b></h3>
+                <section class="statistics">
+                    <div class="container body-content">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="box">
+                                    <i class="fa fa-users fa-fw bg-primary"></i>
+                                    <div class="info" id="info">
+                                        <span>จำนวนกว่า</span> <h3> @ViewBag.UserCount </h3> <span>คน</span>
+                                        <p>ผู้ใช้งานบริการวางแผนการเรียนออนไลน์ของเรา</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="box">
+                                    <i class="fa fa-graduation-cap fa-fw danger"></i>
+                                    <div class="info" id="info">
+                                        <span>จำนวนกว่า </span> <h3> @ViewBag.GoalCount </h3> <span>แผนเป้าหมาย</span>
+                                        <p>ที่สนใจในการตั้งเป้าหมายของเรามันดีสุดๆไปเลย</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="box">
+                                    <i class="fa fa-check-square-o fa-fw success"></i>
+                                    <div class="info" id="info">
+                                        <span>จำนวนกว่า </span> <h3> @ViewBag.PlannerCount </h3> <span>แผนแพลนเนอร์</span>
+                                        <p>ที่สนใจในการวางแผนประจำวันของพวกเขา</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
