@@ -1,6 +1,9 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using Microsoft.Owin.Security;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +13,48 @@ namespace UniplanProject_G03.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult CustomerList()
+        {
+            UniplansEntities db = new UniplansEntities();
+            return View(db.AspNetUsers.ToList()); 
+        }
+
+        public ActionResult exportReport()
+        {
+            UniplansEntities db = new UniplansEntities();
+            ReportDocument rd = new ReportDocument();
+            //return View(db.AspNetUsers.ToList());
+            rd.Load(Path.Combine(Server.MapPath("~/Report/MemberListReport.rpt")));
+            //rd.SetDataSource(db.AspNetUsers.ToList());
+            rd.SetDataSource(db.AspNetUsers.Select(p => new
+            {
+                name = p.Name,
+                nick = p.Nick,
+                year = p.Year,
+                university = p.University,
+                institute = p.Institute,
+                branch = p.Branch
+            }).ToList());
+            
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+
+            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            stream.Seek(0, SeekOrigin.Begin);
+            return File(stream, "application/pdf", "MemberReport.pdf");
+            /*try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "MemberReport.pdf");
+            }
+            catch
+            {
+                throw;
+            }*/
+        }
+
         public ActionResult Index()
         {
             return View();

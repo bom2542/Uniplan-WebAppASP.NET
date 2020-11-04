@@ -111,8 +111,8 @@
                                         //description: v.Description,
                                         start: moment(v.StartTime),
                                         end: v.EndTime != null ? moment(v.EndTime) : null,
-                                        /*color: v.Color,
-                                        allDay: v.Full*/
+                                        color: v.Color,
+                                        //allDay: v.Full
                                     });
                                 }
                             })
@@ -128,7 +128,7 @@
                         $('#calendar').fullCalendar('destroy');
                         $('#calendar').fullCalendar({
                             //lang: 'th',
-                            contentHeight: 1000,
+                            contentHeight: 750,
                             defaultDate: new Date(),
                             timeFormat: 'h(:mm)a',
                             header: {

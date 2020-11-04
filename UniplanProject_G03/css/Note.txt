@@ -9,4 +9,6 @@ Pass : Pass@word1
 User : admin@uniplan.com
 ------------------------
 CONSTRAINT [FK_Eat_Food] FOREIGN KEY ([FoodId]) REFERENCES [dbo].[Food] ([Id])
- PRIMARY KEY CLUSTERED ([Id] ASC)
+PRIMARY KEY CLUSTERED ([Id] ASC)
+---------
+~ (Grave Accent)

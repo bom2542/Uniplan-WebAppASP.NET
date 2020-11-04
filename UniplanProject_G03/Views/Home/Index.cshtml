@@ -1,9 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
 
-@{
-    ViewBag.Title = "Home Page";
-}
-
 @if (User.Identity.IsAuthenticated)
 {
     ///string identity = User.Identity.GetUserName();
@@ -11,10 +7,34 @@
     if (User.Identity.GetUserName() == "admin")
     {
         <!--<p>  I am Admin</p>-->
+        {
+            ViewBag.Title = "Dashboard Admin";
+        }
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <p>
+                        <a class="btn btn-success" href="@Url.Action("CustomerList")">Manage Member</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <a class="btn btn-success" href="@Url.Action("CustomerList")">Manage Member</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <a class="btn btn-success" href="@Url.Action("CustomerList")">Manage Member</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     }
     else
     {
-
+        {
+            ViewBag.Title = "Dashboard Member";
+        }
         <!--<p>  I Love Member Wait add Calendar</p>-->
         <div id="calendar" class="container body-content" style="padding-top: 30px"></div>
 
@@ -111,6 +131,9 @@ else
 {
     <!--<p>  I Love General User </p>-->
     //การสไลด์ของรูปภาพจ้า
+    {
+        ViewBag.Title = "Welcome To ";
+    }
 
     <div id="mycarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
