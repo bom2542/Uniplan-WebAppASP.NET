@@ -49,3 +49,60 @@ How to check user
 <!--<p>  I Love General User </p>-->
 }
 --------------------------------------
+----------- Login for testing -----------
+Student_Login
+User : b@uniplan.com
+Pass : 1dv3OD$x^w&N
+-------------------
+Admin_Login
+User : admin
+Pass : Pass@word1
+User : admin@uniplan.com
+------------------------
+CONSTRAINT [FK_Eat_Food] FOREIGN KEY ([FoodId]) REFERENCES [dbo].[Food] ([Id])
+PRIMARY KEY CLUSTERED ([Id] ASC)
+---------
+~ (Grave Accent)
+----------
+Server: it.sut.ac.th
+Username: Webapp63_G03
+Password: 721633
+Sent from Mail for Windows 10
+---------------------------
+สวัสดีครับ
+แจ้งรายละเอียดเรื่องการเอาโปรเจคขึ้น server ครับ
+ขั้นตอนการเอาโปรเจคขึ้น host
+*แนะนำให้ลองอัพไว้แต่เนิ่นๆนะครับ ถ้ามีปัญหาวันใกล้ส่งจะแก้ไม่ทัน
+1. ขั้นตอนการเอาขึ้น host
+Build > Publish Web App เลือกที่ custom
+>เมนู profile > กรอกชื่อ profile ของการเชื่อมต่อ
+>เมนู Connection > ให้เลือก
+>>Method - FTP
+>>Server - it.sut.ac.th
+>>Sitepath - เว้นว่าง
+>>Username - ใช้ username กลุ่มเรา
+>>Password - ใช้ password กลุ่มเรา
+>เมนู Setting เลือก debug
+>เมนู preview กด publish
+หลังจากนั้นระบบก็จะทำการส่งเว็ปเราขึ้นไว้บนโฮส
+2. หลังจากที่เราเอาตัวโปรเจคขึ้น host ไปแล้วเราก็จะทำการเชื่อมต่อโปรเจคเราที่อยู่บนโฮสด้วยวิธีการดังนั้น
+File > Open > Web Site
+เลือกเมนูด้านซ้ายเป็น FTP Site จากนั้นกรอกข้อมูลดังนี้
+Server - it.sut.ac.th
+Port - 21
+Directory - เว้นว่าง
+เอาติ๊กในช่อง Anonymous Login ออก
+Username - กรอก Username กลุ่มเรา
+Password - กรอก Password กลุ่มเรา
+จากนั้นกด Open ได้เลยครับ
+ใครเชื่อมต่อ DB ไม่ได้ Connectionstring ใน web.config ให้ใช้ประมาณนี้นะครับ
+<connectionStrings>
+<add name="ชื่อConnectionString" connectionString="Data Source=.\SQLEXPRESS01;AttachDbFilename=|DataDirectory|\ชื่อDatabase.mdf;&#xD;&#xA;Integrated Security=True;Connect Timeout=10;" providerName="System.Data.SqlClient"/>
+</connectionStrings>
+**ไฟล์เอกสารนี้จะเป็นตัวอย่างขั้นตอนจากพี่สต๊อปครับ
+
+
+    <add name="DefaultConnection" connectionString="Data Source=.\SQLEXPRESS01;AttachDbFilename=|DataDirectory|\aspnet-UniplanProject_G03-20201024113102.mdf;Initial Catalog=aspnet-UniplanProject_G03-20201024113102;Integrated Security=True" providerName="System.Data.SqlClient" />
+    <add name="UniplanEntities" connectionString="metadata=res://*/Models.UniplanModel.csdl|res://*/Models.UniplanModel.ssdl|res://*/Models.UniplanModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\SQLEXPRESS01;attachdbfilename=|DataDirectory|\aspnet-UniplanProject_G03-20201024113102.mdf;initial catalog=aspnet-UniplanProject_G03-20201024113102;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+    <add name="UniplanGoalEntities" connectionString="metadata=res://*/Models.Objective.csdl|res://*/Models.Objective.ssdl|res://*/Models.Objective.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\SQLEXPRESS01;attachdbfilename=|DataDirectory|\aspnet-UniplanProject_G03-20201024113102.mdf;initial catalog=aspnet-UniplanProject_G03-20201024113102;integrated security=True;multipleactiveresultsets=True;application name=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+    <add name="UniplansEntities" connectionString="metadata=res://*/Models.UniplansModel.csdl|res://*/Models.UniplansModel.ssdl|res://*/Models.UniplansModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.\SQLEXPRESS01;attachdbfilename=|DataDirectory|\aspnet-UniplanProject_G03-20201024113102.mdf;initial catalog=aspnet-UniplanProject_G03-20201024113102;integrated security=True;multipleactiveresultsets=True;application name=EntityFramework&quot;" providerName="System.Data.EntityClient" />

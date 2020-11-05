@@ -12,3 +12,8 @@ CONSTRAINT [FK_Eat_Food] FOREIGN KEY ([FoodId]) REFERENCES [dbo].[Food] ([Id])
 PRIMARY KEY CLUSTERED ([Id] ASC)
 ---------
 ~ (Grave Accent)
+----------
+Server: it.sut.ac.th
+Username: Webapp63_G03
+Password: 721633
+Sent from Mail for Windows 10
