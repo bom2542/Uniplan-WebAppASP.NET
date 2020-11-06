@@ -42,26 +42,31 @@
                             <tr>
                                 <td>
                                     <div style="font-size: 18px">
+                                        @Html.ActionLink("สำเร็จ", "Delete", new { id = item.Id })
                                         @Html.DisplayFor(modelItem => item.Topic)
-                                        </div>
-                                        <div class="progress" style="height: 20px">
-                                            @{
-                                                var percent = item.Percent + "%";
-                                            }
-                                            @if (item.Percent < 100)
-                                            {
-                                                <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
-                                                    @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
-                                                </div>
-                                            }
-                                            else
-                                            {
-                                                <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
-                                                    @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
-                                                </div>
-                                            }
-                                        </div>
-                                        <hr />
+                                    </div>
+                                    <div class="progress" style="height: 20px">
+                                        @{
+                                            var percent = item.Percent + "%";
+                                        }
+                                        @if (item.Percent < 100)
+                                        {
+                                            <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div align="center">
+                                        @Html.ActionLink("กี่เปอร์เซนต์แล้วบอกฉันสิ?", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("รายละเอียด", "Details", new { id = item.Id })<br />
+                                    </div>
+                                    <hr />
                                 </td>
                             </tr>
                         }
@@ -93,26 +98,31 @@
                             <tr>
                                 <td>
                                     <div style="font-size: 18px">
+                                        @Html.ActionLink("สำเร็จ", "Delete", new { id = item.Id })
                                         @Html.DisplayFor(modelItem => item.Topic)
                                     </div>
-                                        <div class="progress" style="height: 20px">
-                                            @{
-                                                var percent = item.Percent + "%";
-                                            }
-                                            @if (item.Percent < 100)
-                                            {
-                                                <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
-                                                    @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
-                                                </div>
-                                            }
-                                            else
-                                            {
-                                                <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
-                                                    @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
-                                                </div>
-                                            }
-                                        </div>
-                                        <hr />
+                                    <div class="progress" style="height: 20px">
+                                        @{
+                                            var percent = item.Percent + "%";
+                                        }
+                                        @if (item.Percent < 100)
+                                        {
+                                            <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
+                                                @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div align="center">
+                                        @Html.ActionLink("กี่เปอร์เซนต์แล้วบอกฉันสิ?", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("รายละเอียด", "Details", new { id = item.Id })<br />
+                                    </div>
+                                    <hr />
                                 </td>
                             </tr>
                         }
@@ -144,6 +154,7 @@
                             <tr>
                                 <td>
                                     <div style="font-size: 18px">
+                                        @Html.ActionLink("สำเร็จ", "Delete", new { id = item.Id })
                                         @Html.DisplayFor(modelItem => item.Topic)
                                     </div>
                                     <div class="progress" style="height: 20px">
@@ -163,6 +174,10 @@
                                             </div>
                                         }
                                     </div>
+                                    <div align="center">
+                                        @Html.ActionLink("กี่เปอร์เซนต์แล้วบอกฉันสิ?", "Edit", new { id = item.Id }) |
+                                        @Html.ActionLink("รายละเอียด", "Details", new { id = item.Id })<br />
+                                    </div>
                                     <hr />
                                 </td>
                             </tr>
@@ -172,98 +187,6 @@
             </tbody>
         </table>
     </div>
-
-    <!-- เป้าหมายระยะกลาง -->
-    @*<div class="col-md-4">
-            <table class="table">
-                <tr>
-                    <th>
-                        เป้าหมายระยะกลาง
-                    </th>
-                </tr>
-                @foreach (var item in Model)
-                {
-                    var type = item.GoalTypeID;
-
-                    if (type == 2)
-                    {
-                        var user = item.UserName;
-                        if (user == User.Identity.GetUserName())
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Topic)
-                                    <div class="progress" style="height: 20px">
-                                        @{
-                                            var percent = item.Percent + "%";
-                                        }
-                                        @if (item.Percent < 100)
-                                        {
-                                            <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
-                                                @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                            <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
-                                                @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
-                                            </div>
-                                        }
-                                    </div>
-                                    <hr />
-                                </td>
-                            </tr>
-                        }
-                    }
-                }
-            </table>
-        </div>*@
-
-    <!-- เป้าหมายระยะยาว -->
-    @*<div class="col-md-4">
-            <table class="table">
-                <tr>
-                    <th>
-                        เป้าหมายระยะยาว
-                    </th>
-                </tr>
-                @foreach (var item in Model)
-                {
-                    var type = item.GoalTypeID;
-
-                    if (type == 3)
-                    {
-                        var user = item.UserName;
-                        if (user == User.Identity.GetUserName())
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Topic)
-                                    <div class="progress" style="height: 20px">
-                                        @{
-                                            var percent = item.Percent + "%";
-                                        }
-                                        @if (item.Percent < 100)
-                                        {
-                                            <div class="progress-bar progress-bar-info progress-bar-striped" style=" width: @percent">
-                                                @Html.DisplayFor(modelItem => item.Percent)<text>%</text>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                            <div class="progress-bar progress-bar-success progress-bar-striped" style=" width: @percent">
-                                                @Html.DisplayFor(modelItem => item.Percent)<text>% Sucessfully - Congratulation </text>
-                                            </div>
-                                        }
-                                    </div>
-                                    <hr />
-                                </td>
-                            </tr>
-                        }
-                    }
-                }
-            </table>
-        </div>*@
 
 </div>
 

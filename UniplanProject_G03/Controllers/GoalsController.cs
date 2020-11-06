@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using UniplanProject_G03.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.Ajax.Utilities;
 
 namespace UniplanProject_G03
 {
@@ -50,6 +52,9 @@ namespace UniplanProject_G03
         {
             if (ModelState.IsValid)
             {
+                goal.Percent = 0;
+                goal.UserName = User.Identity.GetUserName();
+
                 db.Goal.Add(goal);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,6 +85,7 @@ namespace UniplanProject_G03
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Topic,Detail,Percent,GoalTypeID,UserName")] Goal goal)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entry(goal).State = EntityState.Modified;
