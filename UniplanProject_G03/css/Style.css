@@ -8,14 +8,26 @@
 
 @font-face {
     font-family: 'sutbold';
-    src: url('../fonts/sut_regular-webfont.woff2') format('woff2'), url('../fonts/sut_regular-webfont.woff') format('woff');
+    src: url('fonts/sut_regular-webfont.woff2') format('woff2'), url('../fonts/sut_regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     unicode-range: U+0E00-U+0E7F;
 }
 
+@font-face {
+    font-family: "sut";
+    src: url("~/fonts/sut_regular-webfont.woff2") format("woff2"), url("~/fonts/sut_regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 div {
-    font-family : sutregular;
+    font-family : sutregular, sut, sans-serif;
+}
+
+span, button, ul, li, b, p, table, tr, td, th, thead {
+    font-family: sutregular, sut, sans-serif;
 }
 
 #cent {
@@ -43,7 +55,7 @@ div {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: sutregular;
+    font-family: sutregular, sut, sans-serif;
     outline: none;
 }
 
@@ -211,7 +223,7 @@ div {
 
 .side-nav .categories > li > a:after {
     content: "\f053";
-    font-family: font-family;
+    font-family: sutregular, sans-serif, sut;
     font-size: 11px;
     line-height: 1.8;
     float: right;
@@ -283,7 +295,7 @@ div {
     }
 
     .welcome h2 {
-        font-family: sutregular;
+        font-family: sutregular, sut,sans-serif;
         font-weight: 100;
         margin-top: 0
     }
@@ -358,7 +370,7 @@ div {
 
         .admins .box > h3 {
             color: #ccc;
-            font-family: sutregular;
+            font-family: sutregular, sut,sans-serif;
             font-weight: 300;
             margin-top: 0;
         }
