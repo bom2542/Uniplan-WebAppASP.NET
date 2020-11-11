@@ -17,3 +17,107 @@ Server: it.sut.ac.th
 Username: Webapp63_G03
 Password: 721633
 Sent from Mail for Windows 10
+----------
+swiper
+@*<!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide" style="background-image: url(https://swiperjs.com/demos/images/nature-1.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “จงกระหาย และ ทำตัวให้โง่ตลอดเวลา” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-2.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “ลองลุกขึ้น แล้วต่อสู้อีกครั้งสิ” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-3.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “ถ้าไม่พยายามจะรู้ได้อย่างไรว่า สำเร็จแล้ว” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-4.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “ไม่เชื่อหรอก ว่าคุณจะทำไม่ได้” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-5.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “จงพยายามให้มากกว่าคนอื่น 2 เท่า” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-6.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “เมื่อท้อแล้ว ก็ลุกขึ้นสู้น่ะ” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-7.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “ไม่พยายามจะรู่้ได้อย่างไรว่าสำเร็จแล้ว” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-8.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “เพราะเธอต้องยอมอดทน กับสังคมที่ไร้ตัวตน” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-9.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “ตั้งใจเถอะน่ะ เพื่อพ่อแม่” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-10.jpg)">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" align="left" style="color: white"><h4> “วิ่งหามัน ดีกว่า ให้วิ่งหาเรา” </h4></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+            </div>
+
+            <!-- Swiper JS -->
+            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+            <!-- Initialize Swiper -->
+            <script>
+                var swiper = new Swiper('.swiper-container', {
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    coverflowEffect: {
+                        rotate: 50,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                });
+            </script>*@
+--------------

@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-dark navbar-fixed-top" id="nav">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!--<img src="~/Content/images/logo/uniplanlogo.png" style="width: 30px;height: 30px" />-->
-                @Html.ActionLink("Uniplan", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("UniversityStudyPlanner", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 @if (User.Identity.IsAuthenticated)
@@ -32,17 +32,23 @@
                     {
                 <ul class="nav navbar-nav">
                     @* <li>@Html.ActionLink("Home", "Index", "Home")</li> *@
-                    <li>@Html.ActionLink("Member", "CustomerList", "Home")</li>
+                    <li>@Html.ActionLink("สถิติน่าสนใจ", "", "")</li>
+                    <li>@Html.ActionLink("รายงาน", "", "")</li>
+                    <li>@Html.ActionLink("จัดการบทความ", "", "")</li>
                     @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                 </ul>
                     }
                     else
                     {
                         <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("Planner", "Index", "Planners")</li>
                             <li>@Html.ActionLink("Goal", "Index", "Goals")</li>
-                            <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                            <li>@Html.ActionLink("Blog", "Index", "Blog")</li>*@
+                            <li>@Html.ActionLink("ติดตามอารมณ์", "", "")</li>
+                            <li>@Html.ActionLink("แพลนเนอร์", "", "")</li>
+                            <li>@Html.ActionLink("เป้าหมาย", "", "")</li>
+                            <li>@Html.ActionLink("บทความ", "", "")</li>
 
                             @*<li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
@@ -52,10 +58,12 @@
                 else
                 {
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         @*<li>@Html.ActionLink("Blog", "Index", "Blog")</li>*@
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        <li>@Html.ActionLink("บทความที่น่าสนใจ", "Index", "Home", null, null, "Blog", null, null)</li>
+                        <li>@Html.ActionLink("สถิติน่าสนใจ", "Index", "Home", null, null, "Statistic", null, null)</li>
+                        <li>@Html.ActionLink("นักพัฒนา", "Index", "Home", null, null, "Developer", null, null)</li>
                     </ul>
                 }
 
@@ -67,10 +75,10 @@
     <div class="fluid-container">
         @RenderBody()
         <div align="center">
-            <footer>
+            <footer id="foot">
                 <p>
                     &copy; @DateTime.Now.Year - UniversityStudyPlanner(Uniplan) <br />
-                    Information Technology, Suranaree University Of Technology, Nakhonrachasima - TH
+                    Information Technology, Suranaree University Of Technology - TH
                 </p>
             </footer>
         </div>

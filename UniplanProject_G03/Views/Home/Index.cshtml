@@ -159,9 +159,10 @@
 else
 {
     <!--<p>  I Love General User </p>-->
-    //การสไลด์ของรูปภาพจ้า
-    ViewBag.Title = "Welcome To";
+    //ไตเติ้ล
+    ViewBag.Title = "Welcome";
 
+    //การสไลด์ของรูปภาพจ้า
     <div id="mycarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
@@ -208,140 +209,107 @@ else
         </div>
     </div>
 
-    <div class="container body-content">
+    //บทความน่าสนใจ
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <br/>
-                <h2> <b> คำคมสร้างแรงบันดาลใจ </b></h2>
-                <!-- Swiper -->
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
+                <br />
+                <div id="Blog"></div>
+                <h2 align="center"> <b> * บทความน่าสนใจ * </b></h2>
+            </div>
 
-                        <div class="swiper-slide" style="background-image: url(https://swiperjs.com/demos/images/nature-1.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “จงกระหาย และ ทำตัวให้โง่ตลอดเวลา” </h4></div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3" align="center">
+                        <div class="card" style="width: 250px; margin:40px; border-radius: 10px;">
+                            <img src="https://via.placeholder.com/250x100.png" class="card-img-top" style="width: 250px;" />
+                            <div class="card-body" style="padding: 5px;">
+                                <div class="card-title" align="left">
+                                    <h3>ผิดที่เรารักกันไม่ได้</h3>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-2.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “ลองลุกขึ้น แล้วต่อสู้อีกครั้งสิ” </h4></div>
+                                <div class="card-text" align="left">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-3.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “ถ้าไม่พยายามจะรู้ได้อย่างไรว่า สำเร็จแล้ว” </h4></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-4.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “ไม่เชื่อหรอก ว่าคุณจะทำไม่ได้” </h4></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-5.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “จงพยายามให้มากกว่าคนอื่น 2 เท่า” </h4></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-6.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “เมื่อท้อแล้ว ก็ลุกขึ้นสู้น่ะ” </h4></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-7.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “ไม่พยายามจะรู่้ได้อย่างไรว่าสำเร็จแล้ว” </h4></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-8.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “เพราะเธอต้องยอมอดทน กับสังคมที่ไร้ตัวตน” </h4></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-9.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “ตั้งใจเถอะน่ะ เพื่อพ่อแม่” </h4></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="background-image:url(https://swiperjs.com/demos/images/nature-10.jpg)">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12" align="left" style="color: white"><h4> “วิ่งหามัน ดีกว่า ให้วิ่งหาเรา” </h4></div>
-                                </div>
+                                <br />
+                                <a href="#" class="btn btn-info">อ่านต่อ</a>
+                                <br />
                             </div>
                         </div>
                     </div>
-                    <!-- Add Pagination -->
+                    <div class="col-md-3" align="center">
+                        <div class="card" style="width: 250px; margin:40px; border-radius: 10px;">
+                            <img src="https://via.placeholder.com/250x100.png" class="card-img-top" style="width: 250px;" />
+                            <div class="card-body" style="padding: 5px;">
+                                <div class="card-title" align="left">
+                                    <h3>ผิดที่เรารักกันไม่ได้</h3>
+                                </div>
+                                <div class="card-text" align="left">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                </div>
+                                <br />
+                                <a href="#" class="btn btn-info">อ่านต่อ</a>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" align="center">
+                        <div class="card" style="width: 250px; margin:40px; border-radius: 10px;">
+                            <img src="https://via.placeholder.com/250x100.png" class="card-img-top" style="width: 250px;" />
+                            <div class="card-body" style="padding: 5px;">
+                                <div class="card-title" align="left">
+                                    <h3>ผิดที่เรารักกันไม่ได้</h3>
+                                </div>
+                                <div class="card-text" align="left">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                </div>
+                                <br />
+                                <a href="#" class="btn btn-info">อ่านต่อ</a>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" align="center">
+                        <div class="card" style="width: 250px; margin:40px; border-radius: 10px;">
+                            <img src="https://via.placeholder.com/250x100.png" class="card-img-top" style="width: 250px;" />
+                            <div class="card-body" style="padding: 5px;">
+                                <div class="card-title" align="left">
+                                    <h3>ผิดที่เรารักกันไม่ได้</h3>
+                                </div>
+                                <div class="card-text" align="left">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                </div>
+                                <br />
+                                <a href="#" class="btn btn-info">อ่านต่อ</a>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Swiper JS -->
-                <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-                <!-- Initialize Swiper -->
-                <script>
-                    var swiper = new Swiper('.swiper-container', {
-                        effect: 'coverflow',
-                        grabCursor: true,
-                        centeredSlides: true,
-                        slidesPerView: 'auto',
-                        coverflowEffect: {
-                            rotate: 50,
-                            stretch: 0,
-                            depth: 100,
-                            modifier: 1,
-                            slideShadows: true,
+                <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+                <script type="text/javascript">
+                    $('.card').hover(
+                        function () {
+                            $(this).animate({
+                                marginTop: "-=1%",
+                                marginBottom: "+=1%"
+                            }, 200)
                         },
-                        pagination: {
-                            el: '.swiper-pagination',
-                        },
-                    });
+                        function () {
+                            $(this).animate({
+                                marginTop: "+=1%",
+                                marginBottom: "-=1%"
+                            })
+                        }
+                    )
                 </script>
-
-            </div>
-
-            <div class="col-md-12">
                 <br />
             </div>
-            <div class="col-md-12">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6" align="center">
-                            <img src="~/Content/images/Review/Pharadorn.jpg" style="border-radius: 50%; width: 50%; height: auto;" />
-                        </div>
-                        <div class="col-md-6">
-                            <br />
-                            <br />
-                            <br />
-                            <h2>" ผมมีความเชื่ออีกอย่างหนึ่งที่ว่า การเรียนที่ดีคือ การเรียนแบบมีแบบแผน "</h2>
-                            <h4><i>ภราดร บุญร่วม</i></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="col-md-12">
-                <br />
-            </div>
-            <div class="col-md-12">
-                <h2 align="left"><b>สถิติยอดคนเข้ามาใช้งาน</b></h2>
+                <div id="Statistic"></div>
+                <h2 align="center"><b> * สถิติยอดคนเข้ามาใช้งาน * </b></h2>
                 <section class="statistics">
                     <div class="container body-content">
                         <div class="row">
@@ -368,23 +336,43 @@ else
                                     <i class="fa fa-check-square-o fa-fw success"></i>
                                     <div class="info" id="info">
                                         <span>จำนวนกว่า </span> <h3> @ViewBag.PlannerCount </h3> <span>แผนแพลนเนอร์</span>
-                                        <p>ที่สนใจในการวางแผนประจำวันของพวกเขา</p>
+                                        <p>ที่สนใจในการวางแผนประจำวันของพวกเขาใส่ใจ</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div row>
+                        <div class="row">
                             <div class="col-md-12">
-                                <br/>
-                                <br/>
+                                <br />
+                                <br />
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
 
+            <div class="col-md-12">
+                <div id="Developer"></div>
+                <h2 align="center"><b> * จากใจ... นักพัฒนา * </b></h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6" align="center">
+                            <img src="~/Content/images/Review/Pharadorn.jpg" style="border-radius: 50%; width: 50%; height: auto;" />
+                        </div>
+                        <div class="col-md-6">
+                            <br />
+                            <br />
+                            <h2>" ผมมีความเชื่ออีกอย่างหนึ่งที่ว่า การเรียนที่ดีคือ การเรียนแบบมีแบบแผน "</h2>
+                            <h4><i>ภราดร บุญร่วม</i></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Stop -->
         </div>
     </div>
+    <br />
+    <hr />
 }
 
