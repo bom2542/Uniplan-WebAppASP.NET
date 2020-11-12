@@ -1,0 +1,114 @@
+﻿@model UniplanProject_G03.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-12">
+            <center><img class="img-responsive" src=@Url.Content("~/Content/images/Blogs/" + @Html.DisplayFor(model => model.Urlimg)) style="width: auto; height: 250px;" /></center>
+        </div>
+        <br />
+        <div class="col-md-12" style="font-size: 36px; font-weight: bold;">
+            <center>@Html.DisplayFor(model => model.Writer)</center>
+        </div>
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-md-4" align="left">
+            ว/ด/ป.จัดทำ : @Html.DisplayFor(model => model.Curdate.Date)
+        </div>
+        <div class="col-md-4">
+            ผู้เขียน : @Html.DisplayFor(model => model.Writer)
+        </div>
+        <div class="col-md-4">
+            คนอ่าน : @Html.DisplayFor(model => model.Countread)
+        </div>
+        <br />
+    </div>
+</div>
+
+<br />
+<hr />
+
+@*
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Blog</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Curdate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Curdate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Writer)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Writer)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Countread)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Countread)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Topic)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Topic)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Content1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Content1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Content2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Content2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Urlimg)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Urlimg)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

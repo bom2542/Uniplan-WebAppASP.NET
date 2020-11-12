@@ -30,28 +30,28 @@
                 {
                     if (User.Identity.GetUserName() == "admin")
                     {
-                <ul class="nav navbar-nav">
-                    @* <li>@Html.ActionLink("Home", "Index", "Home")</li> *@
-                    <li>@Html.ActionLink("สถิติน่าสนใจ", "", "")</li>
-                    <li>@Html.ActionLink("รายงาน", "", "")</li>
-                    <li>@Html.ActionLink("จัดการบทความ", "", "")</li>
-                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                </ul>
+                        <ul class="nav navbar-nav">
+                            @* <li>@Html.ActionLink("Home", "Index", "Home")</li> *@
+                            <li>@Html.ActionLink("สถิติน่าสนใจ", "", "")</li>
+                            <li>@Html.ActionLink("รายงาน", "", "")</li>
+                            <li>@Html.ActionLink("จัดการบทความ", "Index", "Blogs")</li>
+                            @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        </ul>
                     }
                     else
                     {
                         <ul class="nav navbar-nav">
                             @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Planner", "Index", "Planners")</li>
-                            <li>@Html.ActionLink("Goal", "Index", "Goals")</li>
-                            <li>@Html.ActionLink("Blog", "Index", "Blog")</li>*@
+                                <li>@Html.ActionLink("Planner", "Index", "Planners")</li>
+                                <li>@Html.ActionLink("Goal", "Index", "Goals")</li>
+                                <li>@Html.ActionLink("Blog", "Index", "Blog")</li>*@
                             <li>@Html.ActionLink("ติดตามอารมณ์", "", "")</li>
                             <li>@Html.ActionLink("แพลนเนอร์", "", "")</li>
                             <li>@Html.ActionLink("เป้าหมาย", "", "")</li>
                             <li>@Html.ActionLink("บทความ", "", "")</li>
 
                             @*<li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                         </ul>
                     }
                 }
@@ -60,10 +60,10 @@
                     <ul class="nav navbar-nav">
                         @*<li>@Html.ActionLink("Blog", "Index", "Blog")</li>*@
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                        <li>@Html.ActionLink("บทความที่น่าสนใจ", "Index", "Home", null, null, "Blog", null, null)</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                         <li>@Html.ActionLink("สถิติน่าสนใจ", "Index", "Home", null, null, "Statistic", null, null)</li>
                         <li>@Html.ActionLink("นักพัฒนา", "Index", "Home", null, null, "Developer", null, null)</li>
+                        <li>@Html.ActionLink("บทความ", "Index", "Blogs")</li>
                     </ul>
                 }
 

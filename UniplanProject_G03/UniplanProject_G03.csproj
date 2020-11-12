@@ -177,6 +177,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BlogsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -216,6 +217,9 @@
     </Compile>
     <Compile Include="Models\AspNetUsers.cs">
       <DependentUpon>Objective.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blog.cs">
+      <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
@@ -262,6 +266,9 @@
       <DependentUpon>Objective.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Planner.cs">
+      <DependentUpon>UniplansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UniplanModel.Context.cs">
@@ -354,11 +361,17 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="css\StyleForLogin.css" />
+    <Content Include="css\Style2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="UniplanLogin\css\style.css" />
+    <Content Include="UniplanLogin\images\banner.jpg" />
+    <Content Include="UniplanLogin\index.html" />
+    <Content Include="UniplanLogin\js\index.js" />
+    <Content Include="UniplanLogin\js\particles.min.js" />
+    <Content Include="UniplanLogin\w3layouts-License.txt" />
     <Content Include="Models\Goal.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Goal.edmx</DependentUpon>
@@ -445,6 +458,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Account\css\style.css" />
+    <Content Include="Views\Account\images\banner.jpg" />
+    <Content Include="Views\Account\js\index.js" />
+    <Content Include="Views\Account\js\particles.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -490,6 +507,11 @@
     <Content Include="Views\Planners\Edit.cshtml" />
     <Content Include="Views\Planners\Index.cshtml" />
     <Content Include="Views\Home\CustomerList.cshtml" />
+    <Content Include="Views\Blogs\Create.cshtml" />
+    <Content Include="Views\Blogs\Delete.cshtml" />
+    <Content Include="Views\Blogs\Details.cshtml" />
+    <Content Include="Views\Blogs\Edit.cshtml" />
+    <Content Include="Views\Blogs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

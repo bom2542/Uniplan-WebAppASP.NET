@@ -17,7 +17,9 @@
         <AssociationConnector Association="UniplansModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="UniplansModel.FK_Goal_ToGoalType" ManuallyRouted="false" />
         <AssociationConnector Association="UniplansModel.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="UniplansModel.Planner" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="UniplansModel.Planner" Width="1.5" PointX="4.875" PointY="7.75" />
+        <EntityTypeShape EntityType="UniplansModel.Blog" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="UniplansModel.sysdiagram" Width="1.5" PointX="1.375" PointY="6.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
