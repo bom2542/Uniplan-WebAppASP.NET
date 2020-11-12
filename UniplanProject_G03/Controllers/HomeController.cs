@@ -1,5 +1,4 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using Microsoft.Owin.Security;
+﻿using Microsoft.Owin.Security;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,33 +18,6 @@ namespace UniplanProject_G03.Controllers
         {
             UniplansEntities db = new UniplansEntities();
             return View(db.AspNetUsers.ToList()); 
-        }
-
-        public ActionResult exportReport()
-        {
-            UniplansEntities db = new UniplansEntities();
-            ReportDocument rd = new ReportDocument();
-            //return View(db.AspNetUsers.ToList());
-            rd.Load(Path.Combine(Server.MapPath("~/Report/MemberListReport.rpt")));
-            //rd.SetDataSource(db.AspNetUsers.ToList());
-            rd.SetDataSource(db.AspNetUsers.Select(p => new
-            {
-                name = p.Name,
-                nick = p.Nick,
-                year = p.Year,
-                university = p.University,
-                institute = p.Institute,
-                branch = p.Branch
-            }).ToList());
-            
-            Response.Buffer = false;
-            Response.ClearContent();
-            Response.ClearHeaders();
-
-            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-            stream.Seek(0, SeekOrigin.Begin);
-            return File(stream, "application/pdf", "MemberReport.pdf");
-
         }
 
     public ActionResult Index()

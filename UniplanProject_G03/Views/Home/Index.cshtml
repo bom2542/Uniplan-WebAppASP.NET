@@ -58,7 +58,21 @@
                 <!-- เลเอาท์ -->
             </div>
         </div>
-        
+
+        <br />
+        <div class="search-page">
+            @using (Html.BeginForm("Index", "UserReport", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="row ">
+                    <div class="col-md-12" title="ส่งค่า Date ไปแสดงรายงาน" data-toggle="tooltip">
+                        <input type="submit" value="รายงานบัญชีผู้ใช้" class="btn btn-success" />
+                    </div>
+                </div>
+            }
+        </div>
+        <br />
+        <hr />
+
 
     }
     else

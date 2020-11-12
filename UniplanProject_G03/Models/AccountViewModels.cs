@@ -78,7 +78,7 @@ namespace UniplanProject_G03.Models
         [Required]
         [Display(Name = "วันเกิด : ")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
-        public DateTime Dob { get; set; }
+        public DateTime Dob { get; internal set; }
 
         [Required]
         [Display(Name = "เพศ : ")]
