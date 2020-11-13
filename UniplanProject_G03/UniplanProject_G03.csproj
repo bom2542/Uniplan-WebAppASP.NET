@@ -212,16 +212,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\GoalReportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SumarizeUserReportController.cs" />
     <Compile Include="Controllers\UserReportController.cs" />
-    <Compile Include="DataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet3.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -291,6 +285,9 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MoodTracker.cs">
+      <DependentUpon>UniplansModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Objective.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -344,20 +341,6 @@
     </Compile>
     <Compile Include="Controllers\PlannersController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\GoalReport.aspx.cs">
-      <DependentUpon>GoalReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\GoalReport.aspx.designer.cs">
-      <DependentUpon>GoalReport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\SumarizeGoalReport.aspx.cs">
-      <DependentUpon>SumarizeGoalReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\SumarizeGoalReport.aspx.designer.cs">
-      <DependentUpon>SumarizeGoalReport.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Reports\SumarizeUserReport.aspx.cs">
       <DependentUpon>SumarizeUserReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -439,8 +422,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Reports\GoalReport.aspx" />
-    <Content Include="Reports\SumarizeGoalReport.aspx" />
     <Content Include="Reports\SumarizeUserReport.aspx" />
     <Content Include="Reports\UserReport.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -456,12 +437,6 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="UniplanLogin\css\style.css" />
-    <Content Include="UniplanLogin\images\banner.jpg" />
-    <Content Include="UniplanLogin\index.html" />
-    <Content Include="UniplanLogin\js\index.js" />
-    <Content Include="UniplanLogin\js\particles.min.js" />
-    <Content Include="UniplanLogin\w3layouts-License.txt" />
     <Content Include="Models\Goal.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Goal.edmx</DependentUpon>
@@ -534,17 +509,6 @@
     </Content>
     <Content Include="fonts\sut_regular-webfont.woff" />
     <Content Include="fonts\sut_regular-webfont.woff2" />
-    <Content Include="DataSet3.xsc">
-      <DependentUpon>DataSet3.xsd</DependentUpon>
-    </Content>
-    <None Include="DataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="DataSet3.xss">
-      <DependentUpon>DataSet3.xsd</DependentUpon>
-    </Content>
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -559,10 +523,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Views\Account\css\style.css" />
-    <Content Include="Views\Account\images\banner.jpg" />
-    <Content Include="Views\Account\js\index.js" />
-    <Content Include="Views\Account\js\particles.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -613,12 +573,9 @@
     <Content Include="Views\Blogs\Details.cshtml" />
     <Content Include="Views\Blogs\Edit.cshtml" />
     <Content Include="Views\Blogs\Index.cshtml" />
-    <Content Include="Views\UserReport\Index.cshtml" />
     <Content Include="_aspnet_UniplanProject_G03_20201024113102DataSet.xsc">
       <DependentUpon>_aspnet_UniplanProject_G03_20201024113102DataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="Views\SumarizeUserReport\Index.cshtml" />
-    <Content Include="Views\GoalReport\Index.cshtml" />
     <None Include="_aspnet_UniplanProject_G03_20201024113102DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>_aspnet_UniplanProject_G03_20201024113102DataSet.Designer.cs</LastGenOutput>
@@ -657,7 +614,6 @@
     <EmbeddedResource Include="Migrations\202010270946564_UpdatesToModelProperites1.resx">
       <DependentUpon>202010270946564_UpdatesToModelProperites1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportSources\SumarizeGoalReport.rdlc" />
     <EmbeddedResource Include="ReportSources\SumarizeUserReport.rdlc" />
     <EmbeddedResource Include="ReportSources\UserReport.rdlc" />
   </ItemGroup>

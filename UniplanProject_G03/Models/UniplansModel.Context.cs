@@ -10,7 +10,6 @@
 namespace UniplanProject_G03.Models
 {
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -37,6 +36,6 @@ namespace UniplanProject_G03.Models
         public virtual DbSet<Planner> Planners { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public IEnumerable<object> Order_Details_Extended { get; internal set; }
+        public virtual DbSet<MoodTracker> MoodTrackers { get; set; }
     }
 }

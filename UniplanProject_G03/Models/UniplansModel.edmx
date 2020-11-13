@@ -82,7 +82,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Curdate" Type="date" Nullable="false" />
+          <Property Name="Curdate" Type="datetime" Nullable="false" />
           <Property Name="Writer" Type="nvarchar" MaxLength="50" />
           <Property Name="Countread" Type="int" Nullable="false" />
           <Property Name="Topic" Type="nvarchar" MaxLength="200" />
@@ -123,6 +123,16 @@
           <Property Name="GoalTypeID" Type="int" Nullable="false" />
           <Property Name="GoalTypeName" Type="nvarchar" MaxLength="30" />
           <Property Name="GoalTypeDetail" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="MoodTracker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Doe" Type="datetime" />
+          <Property Name="Mood" Type="int" />
+          <Property Name="Note" Type="nvarchar" MaxLength="250" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="Planner">
           <Key>
@@ -219,6 +229,9 @@ warning 6035: The relationship 'FK_Blog_ToAspNetUsers' has columns that are not 
 warning 6035: The relationship 'FK_Goal_ToTable' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_Goal_ToTable" />-->
         <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_MoodTracker_ToAspNetUsers' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_MoodTracker_ToAspNetUsers" />-->
+        <!--Errors Found During Generation:
 warning 6035: The relationship 'FK_Planner_ToAspNetUsers' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="FK_Planner_ToAspNetUsers" />-->
         <!--Errors Found During Generation:
@@ -235,6 +248,7 @@ warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Goal" EntityType="Self.Goal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GoalType" EntityType="Self.GoalType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MoodTracker" EntityType="Self.MoodTracker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Planner" EntityType="Self.Planner" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -439,6 +453,7 @@ warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not
           <EntitySet Name="Planners" EntityType="UniplansModel.Planner" />
           <EntitySet Name="Blogs" EntityType="UniplansModel.Blog" />
           <EntitySet Name="sysdiagrams" EntityType="UniplansModel.sysdiagram" />
+          <EntitySet Name="MoodTrackers" EntityType="UniplansModel.MoodTracker" />
         </EntityContainer>
         <EntityType Name="Planner">
           <Key>
@@ -455,7 +470,7 @@ warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Curdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Curdate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Countread" Type="Int32" Nullable="false" />
           <Property Name="Topic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -473,6 +488,16 @@ warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MoodTracker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Doe" Type="DateTime" Precision="3" />
+          <Property Name="Mood" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -624,6 +649,17 @@ warning 6035: The relationship 'FK_Table_ToAspNetUsers' has columns that are not
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoodTrackers">
+            <EntityTypeMapping TypeName="UniplansModel.MoodTracker">
+              <MappingFragment StoreEntitySet="MoodTracker">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Mood" ColumnName="Mood" />
+                <ScalarProperty Name="Doe" ColumnName="Doe" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
