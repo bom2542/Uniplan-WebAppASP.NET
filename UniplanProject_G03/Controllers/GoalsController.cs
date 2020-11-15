@@ -14,12 +14,12 @@ namespace UniplanProject_G03
 {
     public class GoalsController : Controller
     {
-        private UniplanGoalEntities db = new UniplanGoalEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Goals
         public ActionResult Index()
         {
-            return View(db.Goal.ToList());
+            return View(db.Goals.Where(x => x.Percent != 100).ToList());
         }
 
         // GET: Goals/Details/5
@@ -29,7 +29,7 @@ namespace UniplanProject_G03
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Goal goal = db.Goal.Find(id);
+            Goal goal = db.Goals.Find(id);
             if (goal == null)
             {
                 return HttpNotFound();
@@ -48,14 +48,14 @@ namespace UniplanProject_G03
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Topic,Detail,Percent,GoalTypeID,UserName")] Goal goal)
+        public ActionResult Create([Bind(Include = "Id,Topic,Detail,Percent,GoalType,UserName")] Goal goal)
         {
             if (ModelState.IsValid)
             {
                 goal.Percent = 0;
                 goal.UserName = User.Identity.GetUserName();
 
-                db.Goal.Add(goal);
+                db.Goals.Add(goal);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -70,7 +70,7 @@ namespace UniplanProject_G03
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Goal goal = db.Goal.Find(id);
+            Goal goal = db.Goals.Find(id);
             if (goal == null)
             {
                 return HttpNotFound();
@@ -83,7 +83,7 @@ namespace UniplanProject_G03
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Topic,Detail,Percent,GoalTypeID,UserName")] Goal goal)
+        public ActionResult Edit([Bind(Include = "Id,Topic,Detail,Percent,GoalType,UserName")] Goal goal)
         {
 
             if (ModelState.IsValid)
@@ -102,7 +102,7 @@ namespace UniplanProject_G03
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Goal goal = db.Goal.Find(id);
+            Goal goal = db.Goals.Find(id);
             if (goal == null)
             {
                 return HttpNotFound();
@@ -115,11 +115,27 @@ namespace UniplanProject_G03
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Goal goal = db.Goal.Find(id);
-            db.Goal.Remove(goal);
+            Goal goal = db.Goals.Find(id);
+            db.Goals.Remove(goal);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+
+  
+        public ActionResult UpdateProgress(int? id)
+        {
+
+            Goal goal = db.Goals.Find(id);
+            goal.Percent = 100;
+            db.Entry(goal).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {

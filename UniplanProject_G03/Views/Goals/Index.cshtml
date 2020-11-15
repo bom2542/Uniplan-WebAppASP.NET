@@ -3,7 +3,7 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    if (User.Identity.GetUserName() == "admin")
+    if (User.Identity.GetUserName() == "admin@gmail.com")
     {
         //admin
 
@@ -32,7 +32,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    var type = item.GoalTypeID;
+                    var type = item.GoalType;
 
                     if (type == 1)
                     {
@@ -42,7 +42,7 @@
                             <tr>
                                 <td>
                                     <div style="font-size: 18px">
-                                        @Html.ActionLink("สำเร็จ", "Delete", new { id = item.Id })
+                                        @Html.ActionLink("สำเร็จ", "UpdateProgress", new { id = item.Id })
                                         @Html.DisplayFor(modelItem => item.Topic)
                                     </div>
                                     <div class="progress" style="height: 20px">
@@ -88,7 +88,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    var type = item.GoalTypeID;
+                    var type = item.GoalType;
 
                     if (type == 2)
                     {
@@ -98,7 +98,7 @@
                             <tr>
                                 <td>
                                     <div style="font-size: 18px">
-                                        @Html.ActionLink("สำเร็จ", "Delete", new { id = item.Id })
+                                        @Html.ActionLink("สำเร็จ", "UpdateProgress", new { id = item.Id })
                                         @Html.DisplayFor(modelItem => item.Topic)
                                     </div>
                                     <div class="progress" style="height: 20px">
@@ -144,7 +144,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    var type = item.GoalTypeID;
+                    var type = item.GoalType;
 
                     if (type == 3)
                     {
@@ -154,7 +154,7 @@
                             <tr>
                                 <td>
                                     <div style="font-size: 18px">
-                                        @Html.ActionLink("สำเร็จ", "Delete", new { id = item.Id })
+                                        @Html.ActionLink("สำเร็จ", "UpdateProgress", new { id = item.Id })
                                         @Html.DisplayFor(modelItem => item.Topic)
                                     </div>
                                     <div class="progress" style="height: 20px">

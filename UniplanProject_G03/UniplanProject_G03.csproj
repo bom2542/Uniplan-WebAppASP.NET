@@ -214,6 +214,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\SumarizeUserReportController.cs" />
     <Compile Include="Controllers\UserReportController.cs" />
     <Compile Include="Global.asax.cs">
@@ -236,6 +237,50 @@
     <Compile Include="Migrations\202010270946564_UpdatesToModelProperites1.Designer.cs">
       <DependentUpon>202010270946564_UpdatesToModelProperites1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011130638226_Refactor_Schema.cs" />
+    <Compile Include="Migrations\202011130638226_Refactor_Schema.Designer.cs">
+      <DependentUpon>202011130638226_Refactor_Schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011130749155_ChangeDatetime_Col.cs" />
+    <Compile Include="Migrations\202011130749155_ChangeDatetime_Col.Designer.cs">
+      <DependentUpon>202011130749155_ChangeDatetime_Col.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131135065_RemoveFieldGoalTb.cs" />
+    <Compile Include="Migrations\202011131135065_RemoveFieldGoalTb.Designer.cs">
+      <DependentUpon>202011131135065_RemoveFieldGoalTb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131145099_RefactorModel.cs" />
+    <Compile Include="Migrations\202011131145099_RefactorModel.Designer.cs">
+      <DependentUpon>202011131145099_RefactorModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131146418_RemoveTbGoalType.cs" />
+    <Compile Include="Migrations\202011131146418_RemoveTbGoalType.Designer.cs">
+      <DependentUpon>202011131146418_RemoveTbGoalType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131148196_DropTable.cs" />
+    <Compile Include="Migrations\202011131148196_DropTable.Designer.cs">
+      <DependentUpon>202011131148196_DropTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131211455_ChangeSchemaPlaner.cs" />
+    <Compile Include="Migrations\202011131211455_ChangeSchemaPlaner.Designer.cs">
+      <DependentUpon>202011131211455_ChangeSchemaPlaner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131229191_ChangeData.cs" />
+    <Compile Include="Migrations\202011131229191_ChangeData.Designer.cs">
+      <DependentUpon>202011131229191_ChangeData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131231416_AddIdentity.cs" />
+    <Compile Include="Migrations\202011131231416_AddIdentity.Designer.cs">
+      <DependentUpon>202011131231416_AddIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131232417_RemoveField.cs" />
+    <Compile Include="Migrations\202011131232417_RemoveField.Designer.cs">
+      <DependentUpon>202011131232417_RemoveField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011131233188_AddAI2.cs" />
+    <Compile Include="Migrations\202011131233188_AddAI2.Designer.cs">
+      <DependentUpon>202011131233188_AddAI2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRole.cs">
@@ -250,9 +295,6 @@
     <Compile Include="Models\AspNetUserLogin.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AspNetUsers.cs">
-      <DependentUpon>Objective.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Blog.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
@@ -262,25 +304,7 @@
     <Compile Include="Models\Event.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Goal.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Goal.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Goal.cs">
-      <DependentUpon>UniplansModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Goal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Goal.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Goal1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Goal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GoalType.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -288,41 +312,12 @@
     <Compile Include="Models\MoodTracker.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Objective.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Objective.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Objective.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Objective.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Objective.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Objective.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Planner.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReportViewModels.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>UniplansModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UniplanModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UniplanModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UniplanModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UniplanModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UniplanModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UniplanModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\UniplansModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -341,27 +336,7 @@
     </Compile>
     <Compile Include="Controllers\PlannersController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\SumarizeUserReport.aspx.cs">
-      <DependentUpon>SumarizeUserReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\SumarizeUserReport.aspx.designer.cs">
-      <DependentUpon>SumarizeUserReport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\UserReport.aspx.cs">
-      <DependentUpon>UserReport.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\UserReport.aspx.designer.cs">
-      <DependentUpon>UserReport.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="_aspnet_UniplanProject_G03_20201024113102DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_aspnet_UniplanProject_G03_20201024113102DataSet.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-UniplanProject_G03-20201024113102.mdf" />
@@ -372,6 +347,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\blog\java_course.jpg" />
     <Content Include="css\index.js" />
     <Content Include="css\Note.txt" />
     <Content Include="css\particles.min.js" />
@@ -422,51 +398,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Reports\SumarizeUserReport.aspx" />
-    <Content Include="Reports\UserReport.aspx" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Goal.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Goal.edmx</DependentUpon>
-      <LastGenOutput>Goal.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Goal.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Goal.edmx</DependentUpon>
-      <LastGenOutput>Goal1.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Objective.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Objective.edmx</DependentUpon>
-      <LastGenOutput>Objective.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Objective.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Objective.edmx</DependentUpon>
-      <LastGenOutput>Objective.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\UniplanModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UniplanModel.edmx</DependentUpon>
-      <LastGenOutput>UniplanModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\UniplanModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UniplanModel.edmx</DependentUpon>
-      <LastGenOutput>UniplanModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Models\UniplansModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>UniplansModel.edmx</DependentUpon>
@@ -479,27 +410,6 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\UniplanModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UniplanModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\UniplanModel.edmx.diagram">
-      <DependentUpon>UniplanModel.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\Goal.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Goal.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Goal.edmx.diagram">
-      <DependentUpon>Goal.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\Objective.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Objective.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Objective.edmx.diagram">
-      <DependentUpon>Objective.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\UniplansModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>UniplansModel.Designer.cs</LastGenOutput>
@@ -573,17 +483,10 @@
     <Content Include="Views\Blogs\Details.cshtml" />
     <Content Include="Views\Blogs\Edit.cshtml" />
     <Content Include="Views\Blogs\Index.cshtml" />
-    <Content Include="_aspnet_UniplanProject_G03_20201024113102DataSet.xsc">
-      <DependentUpon>_aspnet_UniplanProject_G03_20201024113102DataSet.xsd</DependentUpon>
-    </Content>
-    <None Include="_aspnet_UniplanProject_G03_20201024113102DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_aspnet_UniplanProject_G03_20201024113102DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="_aspnet_UniplanProject_G03_20201024113102DataSet.xss">
-      <DependentUpon>_aspnet_UniplanProject_G03_20201024113102DataSet.xsd</DependentUpon>
-    </Content>
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Report\ReportPlanner.cshtml" />
+    <Content Include="Views\Report\ReportBlog.cshtml" />
+    <Content Include="Views\Report\ReportGoal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\images\profile\" />
@@ -614,8 +517,39 @@
     <EmbeddedResource Include="Migrations\202010270946564_UpdatesToModelProperites1.resx">
       <DependentUpon>202010270946564_UpdatesToModelProperites1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportSources\SumarizeUserReport.rdlc" />
-    <EmbeddedResource Include="ReportSources\UserReport.rdlc" />
+    <EmbeddedResource Include="Migrations\202011130638226_Refactor_Schema.resx">
+      <DependentUpon>202011130638226_Refactor_Schema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011130749155_ChangeDatetime_Col.resx">
+      <DependentUpon>202011130749155_ChangeDatetime_Col.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131135065_RemoveFieldGoalTb.resx">
+      <DependentUpon>202011131135065_RemoveFieldGoalTb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131145099_RefactorModel.resx">
+      <DependentUpon>202011131145099_RefactorModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131146418_RemoveTbGoalType.resx">
+      <DependentUpon>202011131146418_RemoveTbGoalType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131148196_DropTable.resx">
+      <DependentUpon>202011131148196_DropTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131211455_ChangeSchemaPlaner.resx">
+      <DependentUpon>202011131211455_ChangeSchemaPlaner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131229191_ChangeData.resx">
+      <DependentUpon>202011131229191_ChangeData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131231416_AddIdentity.resx">
+      <DependentUpon>202011131231416_AddIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131232417_RemoveField.resx">
+      <DependentUpon>202011131232417_RemoveField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011131233188_AddAI2.resx">
+      <DependentUpon>202011131233188_AddAI2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

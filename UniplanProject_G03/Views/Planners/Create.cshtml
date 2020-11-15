@@ -7,10 +7,10 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Planner</h4>
         <hr />
@@ -26,26 +26,27 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
                 @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
+
         <div class="form-group">
             @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
                 @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -58,3 +59,41 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/jquery-ui.css")
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+
+                //$('#StartTime').attr('data-language', 'en');
+                //$('#StartTime').attr('data-date-format', 'yy-mm-dd');
+                //$('#StartTime').attr('data-timepicker', 'true');
+                //$('#StartTime').attr('data-time-format', 'hh:ii');
+
+                //$('#EndTime').attr('data-language', 'en');
+                //$('#EndTime').attr('data-date-format', 'yy-mm-dd');
+                //$('#EndTime').attr('data-timepicker', 'true');
+                //$('#EndTime').attr('data-time-format', 'hh:ii');
+
+                $('#StartTime').datepicker({
+                    language: 'en',
+                    timepicker: true,
+                    dateFormat: 'yy-mm-dd',
+                    timeFormat: 'hh:ii',
+                    minDate: new Date() // Now can select only dates, which goes after today
+                })
+                $('#EndTime').datepicker({
+                    language: 'en',
+                    timepicker: true,
+                    dateFormat: 'yy-mm-dd',
+                    timeFormat: 'hh:ii',
+                    minDate: new Date() // Now can select only dates, which goes after today
+                })
+            });
+    </script>
+}

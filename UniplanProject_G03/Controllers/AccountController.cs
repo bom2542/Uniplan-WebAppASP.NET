@@ -26,7 +26,7 @@ namespace UniplanProject_G03.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -38,9 +38,9 @@ namespace UniplanProject_G03.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -95,7 +95,7 @@ namespace UniplanProject_G03.Controllers
                     return View(model);
             }
         }
-            
+
 
         //
         // GET: /Account/VerifyCode
@@ -115,7 +115,7 @@ namespace UniplanProject_G03.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-            public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
+        public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -126,7 +126,7 @@ namespace UniplanProject_G03.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -153,26 +153,29 @@ namespace UniplanProject_G03.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, string Dob)
         {
 
             if (ModelState.IsValid)
             {
                 var file = Request.Files[0];
-                    if (file != null && file.ContentLength > 0)
-                    {
-                        var fileName = Path.GetFileName(file.FileName);
-                        var path = Path.Combine(Server.MapPath("~/Content/images/profile/"), fileName);
-                        file.SaveAs(path);
-                        model.Url = fileName;
-                    }
-                
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, Nick = model.Nick, Dob = model.Dob,  Sex = model.Sex, StudentID = model.StudentID, University = model.University, Institute = model.Institute, Branch = model.Branch, Year = model.Year, Motto = model.Motto, Url = model.Url};
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/images/profile/"), fileName);
+                    file.SaveAs(path);
+                    model.Url = fileName;
+                }
+
+                //Convert your string to a DateTime
+                DateTime DobValue = DateTime.ParseExact(Dob, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                //string secondFormat = DobValue.ToString("Second format string");
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, Nick = model.Nick, Dob = DobValue, Sex = model.Sex, StudentID = model.StudentID, University = model.University, Institute = model.Institute, Branch = model.Branch, Year = model.Year, Motto = model.Motto, Url = model.Url };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

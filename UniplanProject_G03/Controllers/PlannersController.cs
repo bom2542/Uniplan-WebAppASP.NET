@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,7 +13,7 @@ namespace UniplanProject_G03
 {
     public class PlannersController : Controller
     {
-        private UniplansEntities db = new UniplansEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Planners
         public ActionResult Index()
@@ -46,10 +47,11 @@ namespace UniplanProject_G03
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PlannerId,Topic,StartTime,EndTime,UserName")] Planner planner)
+        public ActionResult Create([Bind(Include = "Topic,StartTime,EndTime,UserName")] Planner planner)
         {
             if (ModelState.IsValid)
             {
+                planner.UserName = User.Identity.GetUserName();
                 db.Planners.Add(planner);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +80,11 @@ namespace UniplanProject_G03
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PlannerId,Topic,StartTime,EndTime,UserName")] Planner planner)
+        public ActionResult Edit([Bind(Include = "PlannerId,Topic,StartTime,EndTime")] Planner planner)
         {
             if (ModelState.IsValid)
             {
+                planner.UserName = User.Identity.GetUserName();
                 db.Entry(planner).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -126,8 +129,8 @@ namespace UniplanProject_G03
 
         public JsonResult GetEvents()
         {
-            using UniplanEntities ue = new UniplanEntities();
-            var events = ue.Events.ToList();
+      
+            var events = db.Events.ToList();
             return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }

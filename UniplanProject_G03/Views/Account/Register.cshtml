@@ -33,6 +33,7 @@
             <!-- ว/ด/ป.เกิด -->
             @Html.LabelFor(m => m.Dob, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-4">
+                @*<input type="text" name="Dob" id="Dob" class="form-control" readonly />*@
                 @Html.EditorFor(m => m.Dob, new { htmlAttributes = new { @class = "form-control", placeholder = "วัน/เดือน/ปีเกิด", @readonly = "true" } })
                 @Html.ValidationMessageFor(m => m.Dob, "", new { @class = "text-danger" })
             </div>
@@ -143,8 +144,8 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-                $('input[type=datetime]').datepicker({
-                    dateFormat: "dd/M/yy",
+                $('#Dob').datepicker({
+                    dateFormat: 'yy-mm-dd',
                     changeMonth: true,
                     changeYear: true,
                     yearRange: "-60:+0"

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -12,7 +14,7 @@ namespace UniplanProject_G03
 {
     public class BlogsController : Controller
     {
-        private UniplansEntities db = new UniplansEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Blogs
         public ActionResult Index()
@@ -46,10 +48,24 @@ namespace UniplanProject_G03
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Curdate,Writer,Countread,Topic,Content1,Content2,UserName,Urlimg")] Blog blog)
+        public ActionResult Create([Bind(Include = "Id,Writer,Topic,Content1,Content2,Urlimg")] Blog blog)
         {
             if (ModelState.IsValid)
             {
+                var file = Request.Files[0];
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/images/blog/"), fileName);
+                    file.SaveAs(path);
+                    blog.Urlimg = fileName;
+                }
+                else
+
+
+                    blog.UserName = User.Identity.GetUserName();
+                blog.Curdate = DateTime.Now;
+                blog.Countread = 0;
                 db.Blogs.Add(blog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +94,24 @@ namespace UniplanProject_G03
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Curdate,Writer,Countread,Topic,Content1,Content2,UserName,Urlimg")] Blog blog)
+        public ActionResult Edit([Bind(Include = "Id,Writer,Topic,Content1,Content2,UserName")] Blog blog, string Urlimg)
         {
             if (ModelState.IsValid)
             {
+                var file = Request.Files[0];
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/images/blog/"), fileName);
+                    file.SaveAs(path);
+                    blog.Urlimg = fileName;
+                } else
+                {
+                    blog.Urlimg = Urlimg;
+                }
+
+                blog.Curdate = DateTime.Now;
+                blog.UserName = User.Identity.GetUserName();
                 db.Entry(blog).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

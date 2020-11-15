@@ -9,25 +9,32 @@
 <div class="container body-content">
     <div class="row">
         <div class="col-md-12">
-            <center><img class="img-responsive" src=@Url.Content("~/Content/images/Blogs/" + @Html.DisplayFor(model => model.Urlimg)) style="width: auto; height: 250px;" /></center>
+            <center><img class="img-responsive" src=@Url.Content("~/Content/images/blog/" + @Html.DisplayFor(model => model.Urlimg)) style="width: auto; height: 250px;" /></center>
         </div>
         <br />
         <div class="col-md-12" style="font-size: 36px; font-weight: bold;">
-            <center>@Html.DisplayFor(model => model.Writer)</center>
+            <center>@Html.DisplayFor(model => model.Topic)</center>
         </div>
         <br />
     </div>
     <div class="row">
-        <div class="col-md-4" align="left">
-            ว/ด/ป.จัดทำ : @Html.DisplayFor(model => model.Curdate.Date)
+        <div class="col-md-6" style="margin-bottom: 1rem;">
+            ว/ด/ป.จัดทำ : @Html.DisplayFor(model => model.Curdate)
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6" style="margin-bottom: 1rem;">
             ผู้เขียน : @Html.DisplayFor(model => model.Writer)
         </div>
-        <div class="col-md-4">
-            คนอ่าน : @Html.DisplayFor(model => model.Countread)
-        </div>
+        @*<div class="col-md-4">
+                คนอ่าน : @Html.DisplayFor(model => model.Countread)
+            </div>*@
+
         <br />
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p style="text-indent: 40px;">@Html.DisplayFor(model => model.Content1)</p>
+            <p style="text-indent: 40px;">@Html.DisplayFor(model => model.Content2)</p>
+        </div>
     </div>
 </div>
 

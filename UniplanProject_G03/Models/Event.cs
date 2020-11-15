@@ -11,9 +11,13 @@ namespace UniplanProject_G03.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Event
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EventID { get; set; }
         public string Topic { get; set; }
         public string Description { get; set; }

@@ -11,16 +11,23 @@ namespace UniplanProject_G03.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Goal
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Topic { get; set; }
         public string Detail { get; set; }
         public int Percent { get; set; }
-        public int GoalTypeID { get; set; }
+
+        public int GoalType { get; set; }
+
+        //public int GoalTypeID { get; set; }
         public string UserName { get; set; }
     
-        public virtual GoalType GoalType { get; set; }
+        //public virtual GoalType GoalType { get; set; }
     }
 }

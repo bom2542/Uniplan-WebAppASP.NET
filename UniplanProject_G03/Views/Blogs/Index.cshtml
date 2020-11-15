@@ -34,17 +34,25 @@
                                 @Html.DisplayFor(modelItem => item.Topic)
                             </td>
                             <td>
-                                <center><img src=@Url.Content("~/Content/images/Blogs/" + @Html.DisplayFor(modelItem => item.Urlimg)) style="width: auto; height: 150px;" /></center>
+                                <center><img src=@Url.Content("~/Content/images/blog/" + @Html.DisplayFor(modelItem => item.Urlimg)) style="width: auto; height: 150px;" /></center>
                             </td>
                             <td style="width: 30%" id="col-content">
                                 @Html.DisplayFor(modelItem => item.Content1)
                             </td>
                             <td>
                                 @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
                                 <center>@Html.ActionLink("อ่านต่อ", "Details", new { id = item.Id }, new { @class = "btn btn-info" })</center>
-                            </td>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (User.Identity.GetUserName() == "admin@gmail.com")
+                                    {
+                                        <center>@Html.ActionLink("ลบ", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })</center>
+                                        <center>@Html.ActionLink("แก้ไข", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })</center>
+                                    }
+                                }
+                                    </td>
                         </tr>
                     }
                 </table>
@@ -52,7 +60,7 @@
             </div>
             @if (User.Identity.IsAuthenticated)
             {
-                if (User.Identity.GetUserName() == "admin")
+                if (User.Identity.GetUserName() == "admin@gmail.com")
                 {
                     <p>
                         <center>@Html.ActionLink("เพิ่มบทความ", "Create", "", new { @class = "btn btn-success" })</center>

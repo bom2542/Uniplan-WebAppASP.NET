@@ -14,16 +14,19 @@ namespace UniplanProject_G03.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult CustomerList()
         {
-            UniplansEntities db = new UniplansEntities();
-            return View(db.AspNetUsers.ToList()); 
+            //UniplansEntities db = new UniplansEntities();
+ 
+            return View(db.Users.ToList()); 
         }
 
     public ActionResult Index()
         {
-            UniplansEntities db = new UniplansEntities();
-            var UserCount = db.AspNetUsers.Count() - 1;
+    
+            var UserCount = db.Users.Count() - 1;
             ViewBag.UserCount = UserCount;
 
             var GoalCount = db.Goals.Count();
@@ -31,6 +34,8 @@ namespace UniplanProject_G03.Controllers
 
             var PlannerCount = db.Planners.Count();
             ViewBag.PlannerCount = PlannerCount;
+
+            ViewBag.BlogList = db.Blogs.Take(4).ToList();
 
             return View();
         }
@@ -51,8 +56,7 @@ namespace UniplanProject_G03.Controllers
 
         public JsonResult GetEvents()
         {
-            using UniplanEntities ue = new UniplanEntities();
-            var events = ue.Events.ToList();
+            var events = db.Events.ToList();
             return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }

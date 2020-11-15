@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.min.css" integrity="sha512-Ujn3LMQ8mHWqy7EPP32eqGKBhBU8v39JRIfCer4nTZqlsSZIwy5g3Wz9SaZrd6pp3vmjI34yyzguZ2KQ66CLSQ==" crossorigin="anonymous" />
 
 </head>
 <body>
@@ -28,13 +29,21 @@
             <div class="navbar-collapse collapse">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    if (User.Identity.GetUserName() == "admin")
+                    if (User.Identity.GetUserName() == "admin@gmail.com")
                     {
                         <ul class="nav navbar-nav">
                             @* <li>@Html.ActionLink("Home", "Index", "Home")</li> *@
                             <li>@Html.ActionLink("สถิติน่าสนใจ", "", "")</li>
-                            <li>@Html.ActionLink("รายงาน", "", "")</li>
                             <li>@Html.ActionLink("จัดการบทความ", "Index", "Blogs")</li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">รายงาน <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("รายงานสรุปบัญชีผู้ใช้", "Index", "Report")</li>
+                                    <li>@Html.ActionLink("รายงานสรุปเป้าหมาย", "ReportGoal", "Report")</li>
+                                    <li>@Html.ActionLink("รายงานสรุปแพลนเนอร์", "ReportPlanner", "Report")</li>
+                                    <li>@Html.ActionLink("รายงานสรุปบทความ", "ReportBlog", "Report")</li>
+                                </ul>
+                            </li>
                             @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                         </ul>
                     }
@@ -45,10 +54,10 @@
                                 <li>@Html.ActionLink("Planner", "Index", "Planners")</li>
                                 <li>@Html.ActionLink("Goal", "Index", "Goals")</li>
                                 <li>@Html.ActionLink("Blog", "Index", "Blog")</li>*@
-                            <li>@Html.ActionLink("ติดตามอารมณ์", "", "")</li>
-                            <li>@Html.ActionLink("แพลนเนอร์", "", "")</li>
-                            <li>@Html.ActionLink("เป้าหมาย", "", "")</li>
-                            <li>@Html.ActionLink("บทความ", "", "")</li>
+                            @*<li>@Html.ActionLink("ติดตามอารมณ์", "", "")</li>*@
+                            <li>@Html.ActionLink("แพลนเนอร์", "Index", "Planners")</li>
+                            <li>@Html.ActionLink("เป้าหมาย", "Index", "Goals")</li>
+                            <li>@Html.ActionLink("บทความ", "Index", "Blogs")</li>
 
                             @*<li>@Html.ActionLink("About", "About", "Home")</li>
                                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
@@ -86,6 +95,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js" integrity="sha512-sM9DpZQXHGs+rFjJYXE1OcuCviEgaXoQIvgsH7nejZB64A09lKeTU4nrs/K6YxFs6f+9FF2awNeJTkaLuplBhg==" crossorigin="anonymous"></script>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
     @RenderSection("scripts", required: false)
     @*@RenderSection("scripts", false)*@
 </body>

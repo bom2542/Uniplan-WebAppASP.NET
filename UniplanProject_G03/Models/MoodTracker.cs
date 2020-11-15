@@ -11,9 +11,14 @@ namespace UniplanProject_G03.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class MoodTracker
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int GoalTypeID { get; set; }
         public int Id { get; set; }
         public Nullable<System.DateTime> Doe { get; set; }
         public Nullable<int> Mood { get; set; }
